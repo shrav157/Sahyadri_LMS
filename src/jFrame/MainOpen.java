@@ -37,8 +37,10 @@ public class MainOpen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("WELCOME TO SAHYADRI LIBRARY MANAGEMENT SYSTEM");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 78, -1, -1));
 
         btnlibstaff.setBackground(new java.awt.Color(255, 51, 51));
         btnlibstaff.setText("LIBRARY-STAFF");
@@ -47,6 +49,7 @@ public class MainOpen extends javax.swing.JFrame {
                 btnlibstaffActionPerformed(evt);
             }
         });
+        getContentPane().add(btnlibstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 167, 179, 136));
 
         btnstudent.setBackground(new java.awt.Color(102, 255, 102));
         btnstudent.setText("STUDENTS");
@@ -55,6 +58,7 @@ public class MainOpen extends javax.swing.JFrame {
                 btnstudentActionPerformed(evt);
             }
         });
+        getContentPane().add(btnstudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 167, 143, 136));
 
         btnfaculty.setText("FACULTY");
         btnfaculty.addActionListener(new java.awt.event.ActionListener() {
@@ -62,39 +66,7 @@ public class MainOpen extends javax.swing.JFrame {
                 btnfacultyActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(btnlibstaff, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
-                .addComponent(btnstudent, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(229, 229, 229))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(332, 332, 332)
-                .addComponent(btnfaculty, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel1)
-                .addGap(73, 73, 73)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnlibstaff, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)
-                    .addComponent(btnstudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(btnfaculty, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-        );
+        getContentPane().add(btnfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 346, 177, 111));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

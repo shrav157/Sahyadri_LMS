@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
 
-public class ManageBooks extends javax.swing.JFrame {
+public final class ManageBooks extends javax.swing.JFrame {
         Connection con=null;
         Statement st=null;
         PreparedStatement pst=null;
@@ -30,20 +30,10 @@ public class ManageBooks extends javax.swing.JFrame {
     public ManageBooks() throws SQLException{
             try {
                 initComponents();
-                Class.forName("com.mysql.cj.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system", "root", "Sahyadri@157");
-                st=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-                  rs = st.executeQuery("SELECT * FROM BOOKS");
-
-    if (rs.next()) {
-        bookname.setText(rs.getString(2));
-        authorname.setText(rs.getString(3));
-        domain.setText(rs.getString(4));
-        qty.setText(rs.getString(5));
-        rack.setText(rs.getString(6));
-        edition.setText(rs.getString(7));
-    }
-
+               
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
+                showRecord();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -52,24 +42,24 @@ public class ManageBooks extends javax.swing.JFrame {
     
     public void showRecord(){
        
-           try {
-    pst = con.prepareStatement("SELECT * FROM BOOKS");
-    rs = pst.executeQuery();
-    ResultSetMetaData rsm = rs.getMetaData();
-    int n = rsm.getColumnCount();
-    DefaultTableModel df = (DefaultTableModel) bookrecords.getModel();
-    df.setRowCount(0);
-    
-    while (rs.next()) {
-        Vector obj = new Vector();
-        for (int i = 1; i <= n; i++) {
-            obj.add(rs.getString(i));
+            try {
+        pst = con.prepareStatement("SELECT * FROM BOOKS");
+        rs = pst.executeQuery();
+        ResultSetMetaData rsm = rs.getMetaData();
+        int n = rsm.getColumnCount();
+        DefaultTableModel df = (DefaultTableModel) bookrecords.getModel();
+        df.setRowCount(0);
+
+        while (rs.next()) {
+            Vector obj = new Vector();
+            for (int i = 1; i <= n; i++) {
+                obj.add(rs.getString(i));
+            }
+            df.addRow(obj);
         }
-        df.addRow(obj);
+    } catch (SQLException ex) {
+        Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
     }
-} catch (SQLException ex) {
-    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
-}
 
     }
     /**
@@ -82,10 +72,8 @@ public class ManageBooks extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        Btnupdate = new javax.swing.JButton();
+        Btndelete = new javax.swing.JButton();
         searchrecord = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -105,36 +93,37 @@ public class ManageBooks extends javax.swing.JFrame {
         btnaddbooks = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1028, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 52, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(102, 0, 204));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 137, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        Btnupdate.setText("UPDATE");
+        Btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnupdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, -1, 30));
 
-        jButton1.setText("ADD");
-
-        jButton2.setText("UPDATE");
-
-        jButton3.setText("Delete");
+        Btndelete.setText("Delete");
+        Btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtndeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, -1, -1));
+        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 135, 530, 38));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -142,34 +131,49 @@ public class ManageBooks extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 135, 123, 39));
 
         jLabel1.setText("Edition");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 513, 56, -1));
 
         jLabel2.setText("BooK Name");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 279, -1, -1));
 
         jLabel3.setText("Author Name");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 328, -1, -1));
 
         jLabel4.setText("Domain");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 374, -1, -1));
 
         jLabel5.setText("Quantity");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 428, -1, -1));
 
         jLabel6.setText("Rack No.");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 473, -1, -1));
+        getContentPane().add(bookname, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 276, 251, -1));
+        getContentPane().add(authorname, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 325, 251, -1));
 
         domain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 domainActionPerformed(evt);
             }
         });
+        getContentPane().add(domain, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 371, 251, -1));
+        getContentPane().add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 425, 251, -1));
+        getContentPane().add(rack, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 470, 251, -1));
+        getContentPane().add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 510, 251, -1));
 
         bookrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Book Name", "Author Name", "Domain", "Quantity", "Rack", "Edition"
+                "Book Id", "Book Name", "Author Name", "Domain", "Quantity", "Rack", "Edition"
             }
         ));
         jScrollPane1.setViewportView(bookrecords);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 930, 140));
 
         btnaddbooks.setText("Add Books");
         btnaddbooks.addActionListener(new java.awt.event.ActionListener() {
@@ -177,110 +181,7 @@ public class ManageBooks extends javax.swing.JFrame {
                 btnaddbooksActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(93, 93, 93)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(edition, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(rack, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(qty, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(domain, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(authorname, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(99, 99, 99)
-                                        .addComponent(bookname, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton2)
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton3)
-                                .addGap(51, 51, 51)
-                                .addComponent(searchrecord, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSearch))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addComponent(btnaddbooks, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(searchrecord, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearch))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(bookname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(authorname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(domain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(qty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(rack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(edition, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                        .addComponent(btnaddbooks)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
+        getContentPane().add(btnaddbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 100, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -299,26 +200,27 @@ public class ManageBooks extends javax.swing.JFrame {
 
     private void btnaddbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddbooksActionPerformed
         // TODO add your handling code here:
-        String BookName = bookname.getText();
-String AuthorName = authorname.getText();
-String Domain = domain.getText();
-String Quantity = qty.getText();
-String RackNo = rack.getText();
-String Edition = edition.getText();
+             try {
+    
+    String bookName = bookname.getText();
+    String authorName = authorname.getText();
+    String Domain = domain.getText();
+    String quantity = qty.getText();
+    String rackNo = rack.getText();
+    String Edition = edition.getText();
 
-if (bookname.getText().isEmpty() || authorname.getText().isEmpty() || domain.getText().isEmpty()
-        || qty.getText().isEmpty() || rack.getText().isEmpty() || edition.getText().isEmpty()) {
-    JOptionPane.showMessageDialog(this, "Please fill in all fields before adding a book.");
-    return;  // Stop the process if any field is empty
-}
+    // Simple validation: Check if any of the fields are empty
+    if (authorName.isEmpty() || Domain.isEmpty() || bookName.isEmpty() || quantity.isEmpty() || rackNo.isEmpty() || Edition.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Please fill in all fields before adding a book.");
+        return;  // Stop the process if any field is empty
+    }
 
-try {
     pst = con.prepareStatement("INSERT INTO BOOKS(book_name, author_name, domain, quantity, rack_no, edition) VALUES(?,?,?,?,?,?)");
-    pst.setString(1, BookName);
-    pst.setString(2, AuthorName);
+    pst.setString(1, bookName);
+    pst.setString(2, authorName);
     pst.setString(3, Domain);
-    pst.setString(4, Quantity);
-    pst.setString(5, RackNo);
+    pst.setString(4, quantity);
+    pst.setString(5, rackNo);
     pst.setString(6, Edition);
 
     int k = pst.executeUpdate();
@@ -339,7 +241,41 @@ try {
     JOptionPane.showMessageDialog(this, "Failed to add book! Error: " + ex.getMessage());
     Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
 }
+             showRecord();
     }//GEN-LAST:event_btnaddbooksActionPerformed
+
+    private void BtnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnupdateActionPerformed
+        try {
+    pst = con.prepareStatement("UPDATE BOOKS SET author_name=?, domain=?, quantity=?, rack_no=?, edition=? WHERE book_name=?");
+    pst.setString(1, authorname.getText());
+    pst.setString(2, domain.getText());
+    pst.setString(3, qty.getText());
+    pst.setString(4, rack.getText());
+    pst.setString(5, edition.getText());
+    pst.setString(6, bookname.getText());
+    
+    pst.executeUpdate();
+    showRecord();
+} catch (SQLException ex) {
+    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+}
+
+        
+    }//GEN-LAST:event_BtnupdateActionPerformed
+
+    private void BtndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtndeleteActionPerformed
+        // TODO add your handling code here:
+      try {
+    pst = con.prepareStatement("DELETE FROM books WHERE book_name=?");
+    pst.setString(1, bookname.getText());  // Assuming bookname is a JTextField or similar
+    pst.executeUpdate();
+    showRecord();
+    // TODO add your handling code here:
+} catch (SQLException ex) {
+    Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+}
+
+    }//GEN-LAST:event_BtndeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -379,6 +315,8 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btndelete;
+    private javax.swing.JButton Btnupdate;
     private javax.swing.JTextField authorname;
     private javax.swing.JTextField bookname;
     private javax.swing.JTable bookrecords;
@@ -386,9 +324,6 @@ try {
     private javax.swing.JButton btnaddbooks;
     private javax.swing.JTextField domain;
     private javax.swing.JTextField edition;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -396,7 +331,6 @@ try {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField qty;
     private javax.swing.JTextField rack;
