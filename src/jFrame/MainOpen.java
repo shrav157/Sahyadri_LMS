@@ -36,9 +36,11 @@ public class MainOpen extends javax.swing.JFrame {
         btnfaculty = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImages(null);
 
         jLabel1.setText("WELCOME TO SAHYADRI LIBRARY MANAGEMENT SYSTEM");
 
+        btnlibstaff.setBackground(new java.awt.Color(255, 51, 51));
         btnlibstaff.setText("LIBRARY-STAFF");
         btnlibstaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,7 +48,13 @@ public class MainOpen extends javax.swing.JFrame {
             }
         });
 
+        btnstudent.setBackground(new java.awt.Color(102, 255, 102));
         btnstudent.setText("STUDENTS");
+        btnstudent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnstudentActionPerformed(evt);
+            }
+        });
 
         btnfaculty.setText("FACULTY");
         btnfaculty.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +106,13 @@ public class MainOpen extends javax.swing.JFrame {
 
     private void btnfacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacultyActionPerformed
         // TODO add your handling code here:
+        new FacultyLogin().setVisible(true);
     }//GEN-LAST:event_btnfacultyActionPerformed
+
+    private void btnstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudentActionPerformed
+        // TODO add your handling code here:
+        new StudentLogin().setVisible(true);
+    }//GEN-LAST:event_btnstudentActionPerformed
 
     /**
      * @param args the command line arguments
