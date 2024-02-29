@@ -33,13 +33,19 @@ public class StaffHome extends javax.swing.JFrame {
         btnmanagebooks = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnissuebooks = new javax.swing.JButton();
+        btnreturn = new javax.swing.JButton();
+        btnAllrecords = new javax.swing.JButton();
+        btnviewissuedbooks = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, -1, -1));
 
         jPanel6.setBackground(new java.awt.Color(153, 0, 255));
 
@@ -54,57 +60,48 @@ public class StaffHome extends javax.swing.JFrame {
             .addGap(0, 49, Short.MAX_VALUE)
         );
 
+        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+
         btnmanagebooks.setText("Manage Books");
         btnmanagebooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmanagebooksActionPerformed(evt);
             }
         });
+        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 255, -1, 60));
 
         jLabel2.setText("Add User");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 139, 80, 50));
 
         jLabel1.setText("Home");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 103, 37, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(237, 237, 237)
-                                .addComponent(btnmanagebooks))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(74, 74, 74)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(201, 201, 201)
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel1)
-                        .addGap(108, 108, 108)
-                        .addComponent(btnmanagebooks))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
-                        .addComponent(jLabel2)))
-                .addGap(0, 258, Short.MAX_VALUE))
-        );
+        btnissuebooks.setText("Issue Books");
+        btnissuebooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnissuebooksActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 258, -1, 54));
+
+        btnreturn.setText("Return Books ");
+        btnreturn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreturnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, 55));
+
+        btnAllrecords.setText("View All Records");
+        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, 53));
+
+        btnviewissuedbooks.setText("View Issued Books");
+        btnviewissuedbooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewissuedbooksActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnviewissuedbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 424, -1, 61));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -113,6 +110,19 @@ public class StaffHome extends javax.swing.JFrame {
         // TODO add your handling code here:
         new ManageBooks().setVisible(true);
     }//GEN-LAST:event_btnmanagebooksActionPerformed
+
+    private void btnissuebooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissuebooksActionPerformed
+        // TODO add your handling code here:
+       new IssueBooks().setVisible(true);
+    }//GEN-LAST:event_btnissuebooksActionPerformed
+
+    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnreturnActionPerformed
+
+    private void btnviewissuedbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewissuedbooksActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnviewissuedbooksActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,7 +160,11 @@ public class StaffHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAllrecords;
+    private javax.swing.JButton btnissuebooks;
     private javax.swing.JButton btnmanagebooks;
+    private javax.swing.JButton btnreturn;
+    private javax.swing.JButton btnviewissuedbooks;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

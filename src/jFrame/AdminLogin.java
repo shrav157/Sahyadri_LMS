@@ -57,6 +57,7 @@ public final class AdminLogin extends javax.swing.JFrame {
         jLabel3.setText("Password");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 263, 62, -1));
 
+        Susername.setBorder(javax.swing.BorderFactory.createTitledBorder("username"));
         Susername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SusernameActionPerformed(evt);
