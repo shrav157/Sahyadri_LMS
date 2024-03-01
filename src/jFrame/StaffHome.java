@@ -1,5 +1,9 @@
 package jFrame;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -107,17 +111,22 @@ public class StaffHome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnmanagebooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagebooksActionPerformed
-        // TODO add your handling code here:
-        new ManageBooks().setVisible(true);
+        try {
+            // TODO add your handling code here:
+            new ManageBooks().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StaffHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnmanagebooksActionPerformed
 
     private void btnissuebooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissuebooksActionPerformed
         // TODO add your handling code here:
-       new IssueBooks().setVisible(true);
+       new IssueBook().setVisible(true);
     }//GEN-LAST:event_btnissuebooksActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         // TODO add your handling code here:
+         new ReturnBooks().setVisible(true);
     }//GEN-LAST:event_btnreturnActionPerformed
 
     private void btnviewissuedbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewissuedbooksActionPerformed

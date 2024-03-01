@@ -4,10 +4,13 @@
  */
 package jFrame;
 
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+import java.text.SimpleDateFormat;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.sourceforge.jdatepicker.JDatePicker;
+import org.jdatepicker.impl.UtilDateModel;
 /**
  *
  * @author pc
@@ -43,31 +46,22 @@ public class IssueBook extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         btnissue = new javax.swing.JButton();
         bookid = new javax.swing.JTextField();
         studentid = new javax.swing.JTextField();
-        duedate = new rojeru_san.componentes.RSDateChooser();
-        issuedate = new rojeru_san.componentes.RSDateChooser();
+        issuedate = new net.sourceforge.jdatepicker.JDatePicker();
+        duedate = new net.sourceforge.jdatepicker.JDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 46, 37, -1));
+        jLabel1.setText("Book ID");
 
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 113, 37, -1));
+        jLabel2.setText("Student ID");
 
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 188, 37, -1));
+        jLabel3.setText("Issue Date");
 
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 320, 37, -1));
-
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 110, 37, -1));
+        jLabel4.setText("Due Date");
 
         btnissue.setText("Issue");
         btnissue.addActionListener(new java.awt.event.ActionListener() {
@@ -75,80 +69,119 @@ public class IssueBook extends javax.swing.JFrame {
                 btnissueActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(316, 459, -1, -1));
-        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 110, 71, -1));
-        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 185, 71, -1));
-        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 391, -1, -1));
-        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 309, -1, -1));
+
+        bookid.setText(" ");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(btnissue))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(duedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(issuedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bookid, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(studentid, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(bookid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(studentid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(issuedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(duedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(btnissue)
+                .addContainerGap(122, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+private Date getSelectedDate(JDatePicker datePicker) {
+    var model = (UtilDateModel) datePicker.getModel();
+    return (Date) model.getValue();
+}
     private void btnissueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissueActionPerformed
-    String BookID = bookid.getText();
-String StudentID = studentid.getText();
-String DueDate = duedate.getDatoFecha().toString(); // Assuming this gets the selected date
-String IssueDate = issuedate.getDatoFecha().toString(); // Assuming this gets the selected date
+        // TODO add your handling code here:
+       SimpleDateFormat dtFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-String Status = "Issued";
-//
-//if (bookid.isEmpty() || studentid.isEmpty() || duedate == null || issuedate == null) {
-//    JOptionPane.showMessageDialog(this, "Please fill in all fields and select dates before issuing the book.");
-//    return;
-//}
-
+// Assuming you have a valid database connection 'con'
+String book_id = bookid.getText();
+String student_id = studentid.getText();
+String issue_date = dtFormat.format(issuedate.getDate());
+String due_date = dtFormat.format(duedate.getDate());
+ 
 try {
-    // Check if the book exists and is available
-    PreparedStatement bookCheckStmt = con.prepareStatement("SELECT * FROM books WHERE book_id = ? AND status = 'Available'");
-    bookCheckStmt.setString(1, BookID);
-    ResultSet bookCheckResult = bookCheckStmt.executeQuery();
+    // Check if the book exists
+    PreparedStatement bookCheckStmt = con.prepareStatement("SELECT * FROM BOOK WHERE book_id = ?");
+    bookCheckStmt.setString(1, book_id);
+    ResultSet rs = bookCheckStmt.executeQuery();
 
-    if (!bookCheckResult.next()) {
-        JOptionPane.showMessageDialog(this, "Book not available for issuing. Check the book ID.");
-        return;
-    }
+    if (rs.next()) {
+        // Check if the student exists
+        PreparedStatement studentCheckStmt = con.prepareStatement("SELECT * FROM STUDENT WHERE student_id = ?");
+        studentCheckStmt.setString(1, student_id);
+        ResultSet rs1 = studentCheckStmt.executeQuery();
 
-    // Check if the student exists
-    PreparedStatement studentCheckStmt = con.prepareStatement("SELECT * FROM students WHERE studentid = ?");
-    studentCheckStmt.setString(1, StudentID);
-    ResultSet studentCheckResult = studentCheckStmt.executeQuery();
+        if (rs1.next()) {
+            // Insert into BOOK_ISSUE table
+            PreparedStatement issueStmt = con.prepareStatement("INSERT INTO BOOK_ISSUE VALUES(?,?,?,?,?)");
+            issueStmt.setString(1, book_id);
+            issueStmt.setString(2, student_id);
+            issueStmt.setString(3, issue_date);
+            issueStmt.setString(4, due_date);
+            issueStmt.setString(5, "Issued"); // Assuming 'Issued' is the default status
 
-    if (!studentCheckResult.next()) {
-        JOptionPane.showMessageDialog(this, "Student not found. Check the student ID.");
-        return;
-    }
+            int rowsInserted = issueStmt.executeUpdate();
 
-    // Proceed with issuing the book
-    pst = con.prepareStatement("INSERT INTO issued_books(book_id, student_id, due_date, issue_date, status) VALUES(?,?,?,?,?,?)");
-    pst.setString(1, BookID);
-    pst.setString(2, StudentID);
-    pst.setString(4, DueDate);
-    pst.setString(5, IssueDate);
-    pst.setString(6, Status);
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(null, "Book successfully issued");
 
-    int k = pst.executeUpdate();
+                // Update the book status in the BOOK table if needed
+                PreparedStatement updateBookStatusStmt = con.prepareStatement("UPDATE BOOK SET status = 'Issued' WHERE book_id = ?");
+                updateBookStatusStmt.setString(1, book_id);
+                updateBookStatusStmt.executeUpdate();
 
-    if (k == 1) {
-        // Update the book status to 'Issued' in the books table
-        PreparedStatement updateBookStatusStmt = con.prepareStatement("UPDATE books SET status = 'Issued' WHERE bookid = ?");
-        updateBookStatusStmt.setString(1, BookID);
-        updateBookStatusStmt.executeUpdate();
-
-        JOptionPane.showMessageDialog(this, "Book Issued Successfully");
-        bookid.setText("");
-        studentid.setText("");
-        duedate.setDatoFecha(null);
-        issuedate.setDatoFecha(null);
+                setVisible(false);
+                new IssueBook().setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Failed to issue the book");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Incorrect studentID");
+        }
     } else {
-        JOptionPane.showMessageDialog(this, "Issuing Book Failed!!");
+        JOptionPane.showMessageDialog(null, "Incorrect bookID");
     }
-} catch (SQLException ex) {
-    JOptionPane.showMessageDialog(this, "Issuing Book Failed! Error: " + ex.getMessage());
-    Logger.getLogger(IssueBook.class.getName()).log(Level.SEVERE, null, ex);
+} catch (SQLException e) {
+    JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
 }
 
-        
-        
     }//GEN-LAST:event_btnissueActionPerformed
 
     /**
@@ -189,13 +222,12 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookid;
     private javax.swing.JButton btnissue;
-    private rojeru_san.componentes.RSDateChooser duedate;
-    private rojeru_san.componentes.RSDateChooser issuedate;
+    private net.sourceforge.jdatepicker.JDatePicker duedate;
+    private net.sourceforge.jdatepicker.JDatePicker issuedate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField studentid;
     // End of variables declaration//GEN-END:variables
 }
