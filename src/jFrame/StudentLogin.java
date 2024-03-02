@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  *
  * @author pc
  */
-public class StudentLogin extends javax.swing.JFrame {
+public final class StudentLogin extends javax.swing.JFrame {
 
   
     public StudentLogin() {
@@ -50,7 +50,7 @@ Connection con;
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
-        usn = new javax.swing.JTextField();
+        usn = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -81,7 +81,7 @@ Connection con;
             }
         });
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 200, 128, -1));
-        getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(441, 288, 128, -1));
+        getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 190, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,6 +157,6 @@ try {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField usn;
+    private javax.swing.JPasswordField usn;
     // End of variables declaration//GEN-END:variables
 }
