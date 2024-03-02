@@ -34,39 +34,49 @@ public class MainOpen extends javax.swing.JFrame {
         btnlibstaff = new javax.swing.JButton();
         btnstudent = new javax.swing.JButton();
         btnfaculty = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("WELCOME TO SAHYADRI LIBRARY MANAGEMENT SYSTEM");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 78, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Vivaldi", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Welcome to Sahaydri Librabry Management System");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 40));
 
-        btnlibstaff.setBackground(new java.awt.Color(255, 51, 51));
+        btnlibstaff.setBackground(new java.awt.Color(255, 255, 204));
+        btnlibstaff.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnlibstaff.setText("LIBRARY-STAFF");
         btnlibstaff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnlibstaffActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlibstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 167, 179, 136));
+        getContentPane().add(btnlibstaff, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 179, 80));
 
-        btnstudent.setBackground(new java.awt.Color(102, 255, 102));
+        btnstudent.setBackground(new java.awt.Color(255, 255, 204));
+        btnstudent.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnstudent.setText("STUDENTS");
         btnstudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnstudentActionPerformed(evt);
             }
         });
-        getContentPane().add(btnstudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 167, 143, 136));
+        getContentPane().add(btnstudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 179, 80));
 
+        btnfaculty.setBackground(new java.awt.Color(255, 255, 204));
+        btnfaculty.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnfaculty.setText("FACULTY");
         btnfaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnfacultyActionPerformed(evt);
             }
         });
-        getContentPane().add(btnfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(332, 346, 177, 111));
+        getContentPane().add(btnfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 179, 80));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/lms_bg4.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 750, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,5 +136,6 @@ public class MainOpen extends javax.swing.JFrame {
     private javax.swing.JButton btnlibstaff;
     private javax.swing.JButton btnstudent;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
