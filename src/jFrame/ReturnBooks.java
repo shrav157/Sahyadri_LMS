@@ -3,18 +3,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jFrame;
-
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import javax.swing.JOptionPane;
 /**
  *
  * @author pc
  */
 public class ReturnBooks extends javax.swing.JFrame {
 
+    private Object issueStmt;
+       
     /**
      * Creates new form ReturnBooks
      */
     public ReturnBooks() {
         initComponents();
+        try {
+            Connect();
+        } catch (SQLException ex) {
+            java.util.logging.Logger.getLogger(ReturnBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        }
+    
+    Connection con;
+    PreparedStatement pst;
+    ResultSet rs;
+    public void Connect() throws SQLException{
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
+
+        } catch (ClassNotFoundException | SQLException ex) {  // Fix the try-catch block
+            Logger.getLogger(ReturnBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -31,64 +55,150 @@ public class ReturnBooks extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jDatePicker1 = new net.sourceforge.jdatepicker.JDatePicker();
-        jDatePicker2 = new net.sourceforge.jdatepicker.JDatePicker();
-        jDatePicker3 = new net.sourceforge.jdatepicker.JDatePicker();
+        btnsubmit = new javax.swing.JButton();
+        bookid = new javax.swing.JTextField();
+        studentid = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        issuedate = new com.toedter.calendar.JDateChooser();
+        duedate = new com.toedter.calendar.JDateChooser();
+        returndate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Book ID");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 132, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 143, 62, -1));
 
         jLabel2.setText("Student ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 204, 63, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 200, 62, -1));
 
         jLabel3.setText("Issue Date");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 275, 63, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 259, 62, -1));
 
         jLabel4.setText("Due Date");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 339, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 333, 62, -1));
 
         jLabel5.setText("Return Date");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 389, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 390, 77, -1));
 
-        jButton1.setText("Return");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnsubmit.setText("Return");
+        btnsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 468, -1, -1));
+        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 474, -1, -1));
+        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 140, 71, -1));
+        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 197, 71, -1));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 35, 37, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 129, 200, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 201, 201, -1));
-
-        jButton2.setText("Search");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(621, 201, -1, -1));
-        getContentPane().add(jDatePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 275, -1, -1));
-        getContentPane().add(jDatePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 332, -1, -1));
-        getContentPane().add(jDatePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 382, -1, -1));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 205, -1, -1));
+        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 170, -1));
+        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 170, -1));
+        getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 170, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+       String bookID = bookid.getText();
+String studentID = studentid.getText();
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+try {
+    
+      PreparedStatement bookIssueCheckStmt = con.prepareStatement("SELECT * FROM book_issue WHERE book_id = ? AND student_id = ?");
+    bookIssueCheckStmt.setString(1, bookID);
+    bookIssueCheckStmt.setString(2, studentID);
+    ResultSet rs = bookIssueCheckStmt.executeQuery();
+// Assuming 'issuedate' and 'duedate' are instances of com.toedter.calendar.JDateChooser
+if (rs.next()) {
+    // Book is issued to this account
+    java.sql.Date issueDate = rs.getDate("issue_date");
+    java.sql.Date dueDate = rs.getDate("due_date");
+
+    issuedate.setDate(issueDate);
+    duedate.setDate(dueDate);
+
+    bookid.setEditable(false);
+    studentid.setEditable(false);
+} else {
+    // Book is not issued to this account
+    JOptionPane.showMessageDialog(null, "Book is not issued to this account");
+
+    // Clear the dates
+    issuedate.setDate(null);
+    duedate.setDate(null);
+
+    // Make the text fields editable
+    bookid.setEditable(true);
+    studentid.setEditable(true);
+}
+
+  
+} catch (SQLException e) {
+           // Handle the SQL exception separately from Exception
+
+}
+
+    }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
+      SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+String bookID = bookid.getText();
+String studentID = studentid.getText();
+
+try {
+    // Assuming 'returndate' is a JTextField where you get the return date
+    String return_date = dtFormat.format(returndate.getDate());
+
+    // Update book_issue table
+    String updateIssueQuery = "UPDATE book_issue SET status='Returned', return_date=? WHERE student_id=? AND book_id=?";
+    pst = con.prepareStatement(updateIssueQuery);
+    pst.setString(1, return_date);
+    pst.setString(2, studentID);
+    pst.setString(3, bookID);
+
+    int rowsUpdatedIssue = pst.executeUpdate();
+
+    if (rowsUpdatedIssue > 0) {
+        // Book successfully returned in book_issue table
+
+        // Update quantity in book table
+        String updateBookQuery = "UPDATE books SET quantity = quantity + 1 WHERE book_id=?";
+        pst = con.prepareStatement(updateBookQuery);
+        pst.setString(1, bookID);
+
+        int rowsUpdatedBook = pst.executeUpdate();
+
+        if (rowsUpdatedBook > 0) {
+            // Quantity updated in the book table
+
+            JOptionPane.showMessageDialog(null, "Book successfully returned");
+
+            // Hide the current window and open the returnBook window
+            setVisible(false);
+            new ReturnBooks().setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to update book quantity.");
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Failed to return the book. Please check the student ID and book ID.");
+    }
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_btnsubmitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,25 +228,26 @@ public class ReturnBooks extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ReturnBooks().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new ReturnBooks().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private net.sourceforge.jdatepicker.JDatePicker jDatePicker1;
-    private net.sourceforge.jdatepicker.JDatePicker jDatePicker2;
-    private net.sourceforge.jdatepicker.JDatePicker jDatePicker3;
+    private javax.swing.JTextField bookid;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnsubmit;
+    private com.toedter.calendar.JDateChooser duedate;
+    private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JLabel jLabel6;
+    private com.toedter.calendar.JDateChooser returndate;
+    private javax.swing.JTextField studentid;
     // End of variables declaration//GEN-END:variables
+
+    
 }

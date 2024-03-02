@@ -31,7 +31,9 @@ public class StaffHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        Popup = new javax.swing.JPopupMenu();
+        Student = new javax.swing.JMenuItem();
+        Faculty = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnmanagebooks = new javax.swing.JButton();
@@ -42,10 +44,18 @@ public class StaffHome extends javax.swing.JFrame {
         btnAllrecords = new javax.swing.JButton();
         btnviewissuedbooks = new javax.swing.JButton();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        Student.setText("jMenuItem1");
+        Popup.add(Student);
+
+        Faculty.setText("jMenuItem1");
+        Popup.add(Faculty);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,6 +77,11 @@ public class StaffHome extends javax.swing.JFrame {
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         btnmanagebooks.setText("Manage Books");
+        btnmanagebooks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnmanagebooksMouseReleased(evt);
+            }
+        });
         btnmanagebooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnmanagebooksActionPerformed(evt);
@@ -133,6 +148,14 @@ public class StaffHome extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnviewissuedbooksActionPerformed
 
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMousePressed
+
+    private void btnmanagebooksMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmanagebooksMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnmanagebooksMouseReleased
+
     /**
      * @param args the command line arguments
      */
@@ -169,12 +192,14 @@ public class StaffHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Faculty;
+    private javax.swing.JPopupMenu Popup;
+    private javax.swing.JMenuItem Student;
     private javax.swing.JButton btnAllrecords;
     private javax.swing.JButton btnissuebooks;
     private javax.swing.JButton btnmanagebooks;
     private javax.swing.JButton btnreturn;
     private javax.swing.JButton btnviewissuedbooks;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -39,14 +39,16 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="duedate" min="-2" max="-2" attributes="0"/>
-                          <Component id="issuedate" min="-2" max="-2" attributes="0"/>
                           <Component id="bookid" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
-                          <Component id="studentid" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="duedate" alignment="0" max="32767" attributes="0"/>
+                              <Component id="issuedate" alignment="0" max="32767" attributes="0"/>
+                              <Component id="studentid" alignment="0" pref="176" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,12 +70,12 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="issuedate" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <Component id="duedate" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="btnissue" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="122" max="32767" attributes="0"/>
           </Group>
@@ -116,9 +118,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="studentid">
     </Component>
-    <Component class="net.sourceforge.jdatepicker.JDatePicker" name="issuedate">
+    <Component class="com.toedter.calendar.JDateChooser" name="issuedate">
     </Component>
-    <Component class="net.sourceforge.jdatepicker.JDatePicker" name="duedate">
+    <Component class="com.toedter.calendar.JDateChooser" name="duedate">
     </Component>
   </SubComponents>
 </Form>

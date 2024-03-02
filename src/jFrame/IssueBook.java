@@ -50,8 +50,8 @@ public class IssueBook extends javax.swing.JFrame {
         btnissue = new javax.swing.JButton();
         bookid = new javax.swing.JTextField();
         studentid = new javax.swing.JTextField();
-        issuedate = new net.sourceforge.jdatepicker.JDatePicker();
-        duedate = new net.sourceforge.jdatepicker.JDatePicker();
+        issuedate = new com.toedter.calendar.JDateChooser();
+        duedate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,11 +90,12 @@ public class IssueBook extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(duedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(issuedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bookid, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(studentid, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(duedate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(issuedate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(studentid, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,66 +112,69 @@ public class IssueBook extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(issuedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(duedate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(btnissue)
                 .addContainerGap(122, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-private Date getSelectedDate(JDatePicker datePicker) {
-    var model = (UtilDateModel) datePicker.getModel();
-    return (Date) model.getValue();
-}
-    private void btnissueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissueActionPerformed
-        // TODO add your handling code here:
-       SimpleDateFormat dtFormat = new SimpleDateFormat("dd-MM-yyyy");
 
-// Assuming you have a valid database connection 'con'
+    private void btnissueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissueActionPerformed
+    // Assuming 'Issued' is the default status
+    // Assuming you have a valid database connection 'con'
+     SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
 String book_id = bookid.getText();
 String student_id = studentid.getText();
 String issue_date = dtFormat.format(issuedate.getDate());
 String due_date = dtFormat.format(duedate.getDate());
- 
+
 try {
     // Check if the book exists
-    PreparedStatement bookCheckStmt = con.prepareStatement("SELECT * FROM BOOK WHERE book_id = ?");
+    PreparedStatement bookCheckStmt = con.prepareStatement("SELECT * FROM BOOKS WHERE book_id = ?");
     bookCheckStmt.setString(1, book_id);
     ResultSet rs = bookCheckStmt.executeQuery();
 
     if (rs.next()) {
         // Check if the student exists
-        PreparedStatement studentCheckStmt = con.prepareStatement("SELECT * FROM STUDENT WHERE student_id = ?");
+        PreparedStatement studentCheckStmt = con.prepareStatement("SELECT * FROM STUDENTS WHERE student_id = ?");
         studentCheckStmt.setString(1, student_id);
         ResultSet rs1 = studentCheckStmt.executeQuery();
 
         if (rs1.next()) {
-            // Insert into BOOK_ISSUE table
-            PreparedStatement issueStmt = con.prepareStatement("INSERT INTO BOOK_ISSUE VALUES(?,?,?,?,?)");
-            issueStmt.setString(1, book_id);
-            issueStmt.setString(2, student_id);
-            issueStmt.setString(3, issue_date);
-            issueStmt.setString(4, due_date);
-            issueStmt.setString(5, "Issued"); // Assuming 'Issued' is the default status
+            // Check if the book is available (quantity > 0)
+            int quantity = rs.getInt("quantity");
 
-            int rowsInserted = issueStmt.executeUpdate();
+            if (quantity > 0) {
+                // Insert into BOOK_ISSUE table
+                PreparedStatement issueStmt = con.prepareStatement("INSERT INTO BOOK_ISSUE (book_id, student_id, issue_date, due_date, status) VALUES (?, ?, ?, ?, ?)");
+                issueStmt.setString(1, book_id);
+                issueStmt.setString(2, student_id);
+                issueStmt.setDate(3, java.sql.Date.valueOf(issue_date)); // Assuming issue_date is in "yyyy-MM-dd" format
+issueStmt.setDate(4, java.sql.Date.valueOf(due_date));
+                issueStmt.setString(5, "Issued"); // Assuming 'Issued' is the default status
 
-            if (rowsInserted > 0) {
-                JOptionPane.showMessageDialog(null, "Book successfully issued");
+                int rowsInserted = issueStmt.executeUpdate();
 
-                // Update the book status in the BOOK table if needed
-                PreparedStatement updateBookStatusStmt = con.prepareStatement("UPDATE BOOK SET status = 'Issued' WHERE book_id = ?");
-                updateBookStatusStmt.setString(1, book_id);
-                updateBookStatusStmt.executeUpdate();
+                if (rowsInserted > 0) {
+                    JOptionPane.showMessageDialog(null, "Book successfully issued");
 
-                setVisible(false);
-                new IssueBook().setVisible(true);
+                    // Update the book quantity in the BOOK table
+                    PreparedStatement updateBookQuantityStmt = con.prepareStatement("UPDATE BOOKS SET quantity = quantity - 1 WHERE book_id = ?");
+                    updateBookQuantityStmt.setString(1, book_id);
+                    updateBookQuantityStmt.executeUpdate();
+
+                    setVisible(false);
+                    new IssueBook().setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to issue the book");
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Failed to issue the book");
+                JOptionPane.showMessageDialog(null, "Book is not available for issue");
             }
         } else {
             JOptionPane.showMessageDialog(null, "Incorrect studentID");
@@ -179,8 +183,10 @@ try {
         JOptionPane.showMessageDialog(null, "Incorrect bookID");
     }
 } catch (SQLException e) {
-    JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
+JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
 }
+
+
 
     }//GEN-LAST:event_btnissueActionPerformed
 
@@ -222,8 +228,8 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookid;
     private javax.swing.JButton btnissue;
-    private net.sourceforge.jdatepicker.JDatePicker duedate;
-    private net.sourceforge.jdatepicker.JDatePicker issuedate;
+    private com.toedter.calendar.JDateChooser duedate;
+    private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
