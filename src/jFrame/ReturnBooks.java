@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jFrame;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+//import java.lang.System.Logger;
+//import java.lang.System.Logger.Level;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
@@ -37,7 +37,7 @@ public class ReturnBooks extends javax.swing.JFrame {
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
 
         } catch (ClassNotFoundException | SQLException ex) {  // Fix the try-catch block
-            Logger.getLogger(ReturnBooks.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(ReturnBooks.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

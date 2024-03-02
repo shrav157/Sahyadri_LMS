@@ -9,8 +9,8 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import net.sourceforge.jdatepicker.JDatePicker;
-import org.jdatepicker.impl.UtilDateModel;
+//import net.sourceforge.jdatepicker.JDatePicker;
+//import org.jdatepicker.impl.UtilDateModel;
 /**
  *
  * @author pc

@@ -26,7 +26,7 @@ public class FacultyRegister extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system","root","Sahyadri@157");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /**
@@ -197,7 +197,7 @@ try {
     }
 } catch (SQLException ex) {
     JOptionPane.showMessageDialog(this, "Registration failed! Error: " + ex.getMessage());
-    Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
+//    Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
 }
 
     }//GEN-LAST:event_btnaddFacultyActionPerformed

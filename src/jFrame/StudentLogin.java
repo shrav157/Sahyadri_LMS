@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jFrame;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
+//import java.lang.System.Logger;
+//import java.lang.System.Logger.Level;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -31,7 +31,7 @@ Connection con;
             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -110,7 +110,7 @@ try {
         JOptionPane.showMessageDialog(this, "Login Credentials Incorrect");
     }
 } catch (SQLException ex) {
-    Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
+//    Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
 }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -143,10 +143,8 @@ try {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StudentLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new StudentLogin().setVisible(true);
         });
     }
 

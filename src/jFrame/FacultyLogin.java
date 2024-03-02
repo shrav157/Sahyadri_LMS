@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package jFrame;
-import java.lang.System.Logger;
+//import java.lang.System.Logger;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -28,7 +28,7 @@ public class FacultyLogin extends javax.swing.JFrame {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system","root","Sahyadri@157");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(FacultyLogin.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(FacultyLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     /**
@@ -96,7 +96,7 @@ try {
     }
 } catch (SQLException ex) {
     // Log the details of the SQL exception for debugging
-    Logger.getLogger(FacultyLogin.class.getName()).log(Level.SEVERE, "SQL Exception: " + ex.getMessage(), ex);
+//    Logger.getLogger(FacultyLogin.class.getName()).log(Level.SEVERE, "SQL Exception: " + ex.getMessage(), ex);
     JOptionPane.showMessageDialog(this, "Login failed! Please check the logs for details.");
 }
       
