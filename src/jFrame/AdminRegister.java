@@ -38,58 +38,67 @@ public final class AdminRegister extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         btnlogin = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Malgun Gothic Semilight", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Register as Staff");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
-        Sname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 10), new java.awt.Color(204, 204, 204))); // NOI18N
+        Sname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         Sname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SnameActionPerformed(evt);
             }
         });
-        getContentPane().add(Sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 310, 50));
+        getContentPane().add(Sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 310, 50));
 
-        Semail.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
+        Semail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         Semail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SemailActionPerformed(evt);
             }
         });
-        getContentPane().add(Semail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 330, 60));
+        getContentPane().add(Semail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 310, 50));
 
-        Susername.setBorder(javax.swing.BorderFactory.createTitledBorder("Username"));
-        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 330, 50));
+        Susername.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 310, 50));
 
-        Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 340, 50));
+        Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 310, 50));
 
+        btnRegister.setBackground(new java.awt.Color(153, 51, 0));
+        btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        getContentPane().add(btnRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
 
+        btnlogin.setBackground(new java.awt.Color(153, 51, 0));
+        btnlogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnlogin.setForeground(new java.awt.Color(255, 255, 255));
         btnlogin.setText("Login");
         btnlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnloginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 380, -1, -1));
+        getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 410, -1, -1));
 
         jLabel6.setText("Already registered?? ");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, 30));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, 30));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/bg4.png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1010, 550));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,7 +198,7 @@ public final class AdminRegister extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnlogin;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

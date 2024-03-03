@@ -46,49 +46,67 @@ public final class AdminLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
-        setSize(new java.awt.Dimension(1980, 1080));
+        setSize(new java.awt.Dimension(700, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("STAFF LOGIN PAGE");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 130, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 410, 40));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 62, -1));
 
-        Susername.setBackground(new java.awt.Color(204, 204, 204));
         Susername.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Susername.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12))); // NOI18N
+        Susername.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        Susername.setCaretColor(new java.awt.Color(255, 255, 255));
         Susername.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        Susername.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         Susername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SusernameActionPerformed(evt);
             }
         });
-        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 310, -1));
+        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 310, -1));
+        Susername.getAccessibleContext().setAccessibleName("Username");
 
-        Spassword.setBackground(new java.awt.Color(255, 51, 51));
-        Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Password"));
-        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 310, -1));
+        Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        Spassword.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        Spassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SpasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 310, -1));
 
+        btnalogin.setBackground(new java.awt.Color(153, 51, 0));
+        btnalogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnalogin.setForeground(new java.awt.Color(255, 255, 255));
         btnalogin.setText("Login");
+        btnalogin.setBorder(new javax.swing.border.MatteBorder(null));
         btnalogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaloginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnalogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 150, 30));
+        getContentPane().add(btnalogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 150, 30));
 
         jLabel4.setText("New Here? Register First");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 170, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 170, -1));
 
+        btnSregister.setBackground(new java.awt.Color(153, 51, 0));
+        btnSregister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSregister.setForeground(new java.awt.Color(255, 255, 255));
         btnSregister.setText("Register");
         btnSregister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSregisterActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
+        getContentPane().add(btnSregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/cream_bg.png"))); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 540));
 
         pack();
@@ -124,6 +142,10 @@ public final class AdminLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
          new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnSregisterActionPerformed
+
+    private void SpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SpasswordActionPerformed
 
     /**
      * @param args the command line arguments

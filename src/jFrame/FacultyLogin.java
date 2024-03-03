@@ -42,36 +42,46 @@ public class FacultyLogin extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         emailid = new javax.swing.JTextField();
         faculty_number = new javax.swing.JTextField();
         btnFLogin = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(750, 383));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("WElcome Sahyadri LMS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 42, 158, -1));
+        jLabel1.setFont(new java.awt.Font("Georgia", 3, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel1.setText("WELCOME TO SAHYADRI LIBRARY");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, -1));
 
-        jLabel2.setText("Faculty Login");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 100, 91, -1));
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("FACULTY LOGIN");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 160, -1));
 
-        jLabel3.setText("Email ID");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 160, 59, -1));
+        emailid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty Number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(emailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 310, 50));
 
-        jLabel4.setText("Faculty Number");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 259, -1, -1));
-        getContentPane().add(emailid, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 157, 71, -1));
-        getContentPane().add(faculty_number, new org.netbeans.lib.awtextra.AbsoluteConstraints(351, 267, 71, -1));
+        faculty_number.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "E-Mail", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(faculty_number, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 310, 50));
 
-        btnFLogin.setText("Login as Register");
+        btnFLogin.setBackground(new java.awt.Color(153, 51, 0));
+        btnFLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnFLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnFLogin.setText("Login ");
         btnFLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
+        getContentPane().add(btnFLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,7 +153,6 @@ try {
     private javax.swing.JTextField faculty_number;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
