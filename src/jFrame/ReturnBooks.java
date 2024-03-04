@@ -88,7 +88,7 @@ public class ReturnBooks extends javax.swing.JFrame {
                 btnsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(307, 474, -1, -1));
+        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, -1, -1));
         getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 140, 71, -1));
         getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 197, 71, -1));
 
