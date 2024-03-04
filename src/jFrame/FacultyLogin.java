@@ -77,7 +77,7 @@ public class FacultyLogin extends javax.swing.JFrame {
                 btnFLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnFLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+        getContentPane().add(btnFLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 90, 40));
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N

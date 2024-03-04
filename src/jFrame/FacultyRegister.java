@@ -40,17 +40,13 @@ public class FacultyRegister extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         btnaddFaculty = new javax.swing.JButton();
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
         fno = new javax.swing.JTextField();
         branch = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -70,36 +66,40 @@ public class FacultyRegister extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Add Faculty");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 89, 30));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 170, 30));
 
-        jLabel2.setText("First Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 131, -1, -1));
-
-        jLabel3.setText("Last Name");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 191, 57, -1));
-
-        jLabel4.setText("Email ID");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 249, 57, -1));
-
-        jLabel5.setText("Faculty Number");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 323, -1, -1));
-
-        jLabel6.setText("Branch");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(304, 383, 51, -1));
-
+        btnaddFaculty.setBackground(new java.awt.Color(153, 51, 0));
+        btnaddFaculty.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnaddFaculty.setForeground(new java.awt.Color(255, 255, 255));
         btnaddFaculty.setText("Add Faculty");
         btnaddFaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddFacultyActionPerformed(evt);
             }
         });
-        getContentPane().add(btnaddFaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(423, 489, -1, -1));
-        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 131, 144, -1));
-        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 199, 205, -1));
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 249, 205, -1));
-        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 323, 205, -1));
-        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(448, 383, 205, -1));
+        getContentPane().add(btnaddFaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 110, 40));
+
+        fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 310, 50));
+
+        lname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Last Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 310, 50));
+
+        email.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email_ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 310, 50));
+
+        fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty Number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 310, 50));
+
+        branch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Branch", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 310, 50));
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,11 +188,7 @@ try {
     private javax.swing.JTextField fname;
     private javax.swing.JTextField fno;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lname;
     // End of variables declaration//GEN-END:variables
