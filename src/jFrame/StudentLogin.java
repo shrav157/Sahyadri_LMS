@@ -5,6 +5,8 @@
 package jFrame;
 //import java.lang.System.Logger;
 //import java.lang.System.Logger.Level;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -12,8 +14,7 @@ import javax.swing.JOptionPane;
  * @author pc
  */
 public final class StudentLogin extends javax.swing.JFrame {
-
-  
+    
     public StudentLogin() {
         initComponents();
         try {
@@ -22,16 +23,17 @@ public final class StudentLogin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(StudentLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
-Connection con;
-    PreparedStatement pst;
-    ResultSet rs;
+    Connection con=null;
+    Statement st=null;
+    PreparedStatement pst=null;
+    ResultSet rs=null;
     public void Connect() throws SQLException{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con= DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
             
         } catch (ClassNotFoundException ex) {
-//            Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
+      //    Logger.getLogger(StudentLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -97,6 +99,7 @@ String userUSN = usn.getText();
 
 
 try {
+    Connect();
     pst = con.prepareStatement("SELECT * FROM STUDENTS WHERE email = ? AND usn = ?");
     pst.setString(1, userEmail);
     pst.setString(2, userUSN);
@@ -104,7 +107,8 @@ try {
     rs = pst.executeQuery();
 
     if (rs.next()) {
-        new StudentHome().setVisible(true);
+        String loggedInStudentID = rs.getString("student_id");
+        new StudentHome(loggedInStudentID).setVisible(true);
         this.setVisible(false);
     } else {
         JOptionPane.showMessageDialog(this, "Login Credentials Incorrect");

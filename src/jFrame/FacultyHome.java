@@ -67,6 +67,7 @@ public void showRecord(){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -75,11 +76,16 @@ public void showRecord(){
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         bookrecords = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        fno = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        myrecords = new javax.swing.JTable();
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(750, 460));
-        setPreferredSize(new java.awt.Dimension(750, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
@@ -93,14 +99,14 @@ public void showRecord(){
 
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Available Books");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
 
         searchrecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchrecordActionPerformed(evt);
             }
         });
-        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 288, -1));
+        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 630, 40));
 
         btnSearch.setBackground(new java.awt.Color(153, 51, 0));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -111,10 +117,10 @@ public void showRecord(){
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 100, -1, -1));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 120, 40));
 
         jLabel2.setText("My Transaction");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, 20));
 
         bookrecords.setForeground(new java.awt.Color(153, 51, 0));
         bookrecords.setModel(new javax.swing.table.DefaultTableModel(
@@ -128,11 +134,21 @@ public void showRecord(){
         bookrecords.setUpdateSelectionOnSort(false);
         jScrollPane1.setViewportView(bookrecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 550, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 760, 130));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 110, 20));
+        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 80, 20));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 820, 530));
+        myrecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Book name", "Issue Date", "Due Date", "Return Date", "Status", "Fine Amount", "Fine Paid"
+            }
+        ));
+        jScrollPane2.setViewportView(myrecords);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 760, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,12 +207,16 @@ public void showRecord(){
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JLabel fno;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable myrecords;
+    private javax.swing.JLabel name;
     private javax.swing.JTextField searchrecord;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,24 +21,30 @@ public final class StudentHome extends javax.swing.JFrame {
         Statement st=null;
         PreparedStatement pst=null;
         ResultSet rs=null;
+    
         
 
     /**
      * Creates new form StudentHome
      */
     public StudentHome() throws SQLException {
-       
         try {
-                initComponents();
-               
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
-                showRecord();
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            initComponents();
 
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
+            showRecord();
+            showStudentDetails(loggedInStudentID);
+            showMyRecords(loggedInStudentID);
+}catch (ClassNotFoundException ex) {
+            
+        
     }
+}
+
+    
+
+    
 public void showRecord(){
        
             try {
@@ -57,9 +63,55 @@ public void showRecord(){
             df.addRow(obj);
         }
     } catch (SQLException ex) {
-        Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
+        
+    }
+}
+
+             private void showStudentDetails(String studentID) {
+        try {
+            pst = con.prepareStatement("SELECT * FROM STUDENTS WHERE student_id = ?");
+            pst.setString(1, studentID);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                name.setText(rs.getString("fname"));
+                usn.setText(rs.getString("usn"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
+    //myrecords
+   private void showMyRecords(String studentID) {
+        try {
+            String query = "SELECT books.book_name, book_issue.issue_date, book_issue.due_date, " +
+               "book_issue.return_date, book_issue.status, book_issue.fine_amount, book_issue.fine_paid " +
+               "FROM book_issue " +
+               "JOIN books ON book_issue.book_id = books.book_id " +
+               "WHERE book_issue.student_id = ?";
+
+        
+        pst = con.prepareStatement(query);
+        pst.setString(1, studentID);
+          rs = pst.executeQuery();
+            DefaultTableModel df = (DefaultTableModel) myrecords.getModel();
+            df.setRowCount(0);
+
+            while (rs.next()) {
+                Vector obj = new Vector();
+                obj.add(rs.getString("book_name"));
+                obj.add(rs.getString("issue_date"));
+                obj.add(rs.getString("due_date"));
+                obj.add(rs.getString("return_date"));
+                obj.add(rs.getString("fine_amount"));
+                obj.add(rs.getString("fine_paid"));
+                obj.add(rs.getString("status"));
+                df.addRow(obj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,8 +130,14 @@ public void showRecord(){
         jScrollPane1 = new javax.swing.JScrollPane();
         bookrecords = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
+        usn = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        myrecords = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Notification");
 
@@ -99,7 +157,11 @@ public void showRecord(){
                 .addComponent(jButton1))
         );
 
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 818, -1));
+
         jLabel1.setText("Available Books");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(367, 60, -1, -1));
+        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 82, 471, 46));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +169,7 @@ public void showRecord(){
                 btnSearchActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 83, 89, 46));
 
         bookrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,53 +181,27 @@ public void showRecord(){
         ));
         jScrollPane1.setViewportView(bookrecords);
 
-        jLabel2.setText("My Transaction");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 151, 790, 159));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1)
-                                .addGap(209, 209, 209))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(367, 367, 367)
-                                        .addComponent(jLabel1))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(searchrecord, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(107, 107, 107)))
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 49, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchrecord, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-        );
+        jLabel2.setText("My Transaction");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 97, 90, -1));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 351, 145, 18));
+        getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(708, 348, 47, 21));
+
+        myrecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Book name", "Issue Date", "Due Date", "Return Date", "Fine Amount", "Fine Paid", "Status"
+            }
+        ));
+        jScrollPane2.setViewportView(myrecords);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 474, 818, 155));
+
+        jLabel5.setText("Mytansaction");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 407, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,15 +243,14 @@ public void showRecord(){
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new StudentHome().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
+      java.awt.EventQueue.invokeLater(() -> {
+        try {
+            // Provide the loggedInStudentID here
+            new StudentHome("loggedInStudentID").setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -223,8 +259,13 @@ public void showRecord(){
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable myrecords;
+    private javax.swing.JLabel name;
     private javax.swing.JTextField searchrecord;
+    private javax.swing.JLabel usn;
     // End of variables declaration//GEN-END:variables
 }

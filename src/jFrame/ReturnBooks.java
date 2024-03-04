@@ -7,15 +7,14 @@ package jFrame;
 //import java.lang.System.Logger.Level;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 /**
  *
  * @author pc
  */
 public class ReturnBooks extends javax.swing.JFrame {
-
-    private Object issueStmt;
-       
+    
     /**
      * Creates new form ReturnBooks
      */
@@ -26,9 +25,7 @@ public class ReturnBooks extends javax.swing.JFrame {
         } catch (SQLException ex) {
             java.util.logging.Logger.getLogger(ReturnBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        }
-    
-    Connection con;
+        }  Connection con;
     PreparedStatement pst;
     ResultSet rs;
     public void Connect() throws SQLException{
@@ -50,6 +47,7 @@ public class ReturnBooks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        FinePaid = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -63,6 +61,9 @@ public class ReturnBooks extends javax.swing.JFrame {
         issuedate = new com.toedter.calendar.JDateChooser();
         duedate = new com.toedter.calendar.JDateChooser();
         returndate = new com.toedter.calendar.JDateChooser();
+        jLabel7 = new javax.swing.JLabel();
+        Yes = new javax.swing.JRadioButton();
+        No = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -80,7 +81,7 @@ public class ReturnBooks extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 333, 62, -1));
 
         jLabel5.setText("Return Date");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 390, 77, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 77, -1));
 
         btnsubmit.setText("Return");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -88,7 +89,7 @@ public class ReturnBooks extends javax.swing.JFrame {
                 btnsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 500, -1, -1));
+        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, -1, -1));
         getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 140, 71, -1));
         getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 197, 71, -1));
 
@@ -104,15 +105,26 @@ public class ReturnBooks extends javax.swing.JFrame {
         getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 205, -1, -1));
         getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 170, -1));
         getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 170, -1));
-        getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 170, -1));
+        getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 170, -1));
+
+        jLabel7.setText("Fine Paid");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
+
+        FinePaid.add(Yes);
+        Yes.setText("Yes");
+        getContentPane().add(Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
+
+        FinePaid.add(No);
+        No.setText("No");
+        getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        // TODO add your handling code here:
+            // TODO add your handling code here:
        String bookID = bookid.getText();
-String studentID = studentid.getText();
+        String studentID = studentid.getText();
 
 try {
     
@@ -148,12 +160,11 @@ if (rs.next()) {
 } catch (SQLException e) {
            // Handle the SQL exception separately from Exception
 
-}
-
+} 
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnsubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsubmitActionPerformed
-      SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dtFormat = new SimpleDateFormat("yyyy-MM-dd");
 String bookID = bookid.getText();
 String studentID = studentid.getText();
 
@@ -161,38 +172,98 @@ try {
     // Assuming 'returndate' is a JTextField where you get the return date
     String return_date = dtFormat.format(returndate.getDate());
 
-    // Update book_issue table
-    String updateIssueQuery = "UPDATE book_issue SET status='Returned', return_date=? WHERE student_id=? AND book_id=?";
-    pst = con.prepareStatement(updateIssueQuery);
-    pst.setString(1, return_date);
-    pst.setString(2, studentID);
-    pst.setString(3, bookID);
+    // Update book_issue table status to "Due"
+    String updateStatusQuery = "UPDATE book_issue SET status='Due' WHERE student_id=? AND book_id=?";
+    pst = con.prepareStatement(updateStatusQuery);
+    pst.setString(1, studentID);
+    pst.setString(2, bookID);
 
-    int rowsUpdatedIssue = pst.executeUpdate();
+    int rowsUpdatedStatus = pst.executeUpdate();
 
-    if (rowsUpdatedIssue > 0) {
-        // Book successfully returned in book_issue table
+    if (rowsUpdatedStatus > 0) {
+        // Status updated to "Due"
 
-        // Update quantity in book table
-        String updateBookQuery = "UPDATE books SET quantity = quantity + 1 WHERE book_id=?";
-        pst = con.prepareStatement(updateBookQuery);
-        pst.setString(1, bookID);
+        // Calculate fine if the book is returned after the due date
+        String dueDateQuery = "SELECT due_date FROM book_issue WHERE student_id=? AND book_id=?";
+        pst = con.prepareStatement(dueDateQuery);
+        pst.setString(1, studentID);
+        pst.setString(2, bookID);
+        ResultSet dueDateResult = pst.executeQuery();
 
-        int rowsUpdatedBook = pst.executeUpdate();
+        if (dueDateResult.next()) {
+            java.sql.Date dueDate = dueDateResult.getDate("due_date");
 
-        if (rowsUpdatedBook > 0) {
-            // Quantity updated in the book table
+            // Compare return date with due date
+            if (returndate.getDate() != null && returndate.getDate().after(dueDate)) {
+                long daysLate = (returndate.getDate().getTime() - dueDate.getTime()) / (24 * 60 * 60 * 1000);
+                double fineAmount = daysLate * 4.0; // Assuming Rs. 4 per day fine
 
-            JOptionPane.showMessageDialog(null, "Book successfully returned");
+                // Display fine in a dialog box
+                JOptionPane.showMessageDialog(null, "Book returned late! Fine: Rs. " + fineAmount);
 
-            // Hide the current window and open the returnBook window
-            setVisible(false);
-            new ReturnBooks().setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Failed to update book quantity.");
+                // Update fine_amount in the book_issue table
+                String updateFineQuery = "UPDATE book_issue SET fine_amount=? WHERE student_id=? AND book_id=?";
+                pst = con.prepareStatement(updateFineQuery);
+                pst.setDouble(1, fineAmount);
+                pst.setString(2, studentID);
+                pst.setString(3, bookID);
+                int rowsUpdatedFine = pst.executeUpdate();
+
+                if (rowsUpdatedFine > 0) {
+                    // Fine amount updated in the book_issue table
+
+                    // Check if fine is paid
+                    // Assuming FinePaidYes and FinePaidNo are your JRadioButtons
+    
+                        ButtonGroup finePaidGroup = new ButtonGroup();
+finePaidGroup.add(Yes);  // Assuming FinePaidYes is the radio button for "Yes"
+finePaidGroup.add(No);   // Assuming FinePaidNo is the radio button for "No"
+
+// Now, retrieve the selected value
+String finePaid = Yes.isSelected() ? "Yes" : "No";
+                
+
+                    // Update fine_paid and status in the book_issue table
+                    String updateIssueQuery = "UPDATE book_issue SET status='Returned', return_date=?, fine_paid=? WHERE student_id=? AND book_id=?";
+                    pst = con.prepareStatement(updateIssueQuery);
+                    pst.setString(1, return_date);
+                    pst.setString(2, finePaid); 
+                    pst.setString(3, studentID);
+                    pst.setString(4, bookID);
+
+                    int rowsUpdatedIssue = pst.executeUpdate();
+
+                    if (rowsUpdatedIssue > 0) {
+                        // Book successfully returned in book_issue table
+
+                        // Update quantity in book table
+                        String updateBookQuery = "UPDATE books SET quantity = quantity + 1 WHERE book_id=?";
+                        pst = con.prepareStatement(updateBookQuery);
+                        pst.setString(1, bookID);
+
+                        int rowsUpdatedBook = pst.executeUpdate();
+
+                        if (rowsUpdatedBook > 0) {
+                            // Quantity updated in the book table
+
+                            JOptionPane.showMessageDialog(null, "Book successfully returned");
+
+                            // Hide the current window and open the returnBook window
+                            setVisible(false);
+                            new ReturnBooks().setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Failed to update book quantity.");
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Failed to update book_issue table.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to update fine_amount in the book_issue table.");
+                }
+            }
         }
     } else {
-        JOptionPane.showMessageDialog(null, "Failed to return the book. Please check the student ID and book ID.");
+        JOptionPane.showMessageDialog(null, "Failed to update status to 'Due'.");
     }
 } catch (Exception e) {
     JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
@@ -234,6 +305,9 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup FinePaid;
+    private javax.swing.JRadioButton No;
+    private javax.swing.JRadioButton Yes;
     private javax.swing.JTextField bookid;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnsubmit;
@@ -245,6 +319,7 @@ try {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private com.toedter.calendar.JDateChooser returndate;
     private javax.swing.JTextField studentid;
     // End of variables declaration//GEN-END:variables

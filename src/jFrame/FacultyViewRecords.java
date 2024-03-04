@@ -12,12 +12,12 @@ import javax.swing.table.TableRowSorter;
  *
  * @author pc
  */
-public final class ViewRecords extends javax.swing.JFrame {
+public class FacultyViewRecords extends javax.swing.JFrame {
 
     /**
-     * Creates new form ViewRecords
+     * Creates new form FacultyViewRecords
      */
-    public ViewRecords() {
+    public FacultyViewRecords() {
         initComponents();
         Connect();
          displayAllRecords();
@@ -30,9 +30,8 @@ public final class ViewRecords extends javax.swing.JFrame {
             con=DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system","root","Sahyadri@157");
         } catch (ClassNotFoundException | SQLException ex) {
            
-        }
+}
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,68 +45,105 @@ public final class ViewRecords extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         search = new javax.swing.JTextField();
-        btnsearch = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         AllRecords = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 51, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 801, -1));
-
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 87, 37, -1));
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(101, 115, 433, 49));
 
-        btnsearch.setText("Search");
-        btnsearch.addActionListener(new java.awt.event.ActionListener() {
+        search.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsearchActionPerformed(evt);
+                searchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(608, 128, -1, -1));
+
+        btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         AllRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Book Id", "Student Id", "Student name", "Book name", "Issue Date", "Due Date", "Return Date", "Status", "Fine Amount", "Fine Paid"
+                "Book Id", "Faculty Id", "Faculty Name", "Book Name", "Issue Date", "Due Date", "Return Date", "Status", "Fine Amount", "Fine Paid"
             }
         ));
-        AllRecords.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                AllRecordsComponentShown(evt);
-            }
-        });
         jScrollPane1.setViewportView(AllRecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 170, 773, 297));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(btnSearch))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(272, 272, 272)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 465, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearch))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AllRecordsComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_AllRecordsComponentShown
- 
-    }//GEN-LAST:event_AllRecordsComponentShown
+    private void searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+         DefaultTableModel ob=(DefaultTableModel) AllRecords.getModel();
+            TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);
+            AllRecords.setRowSorter(obj);
+            obj.setRowFilter(RowFilter.regexFilter(search.getText()));
+    }//GEN-LAST:event_btnSearchActionPerformed
         private void displayAllRecords() {
         try {
             String query = "SELECT "
                     + "bi.book_id, "
-                    + "bi.student_id, "
+                    + "bi.faculty_id, "
                     + "b.book_name, "
-                    + "s.fname, "
+                    + "f.fname, "
                     + "bi.issue_date, "
                     + "bi.due_date, "
                     + "bi.return_date, "
@@ -116,13 +152,13 @@ public final class ViewRecords extends javax.swing.JFrame {
                     + "bi.fine_paid "
                     + "FROM book_issue bi "
                     + "JOIN books b ON bi.book_id = b.book_id "
-                    + "JOIN students s ON bi.student_id = s.student_id";
+                    + "JOIN faculty f ON bi.faculty_id = f.faculty_id";
 
             pst = con.prepareStatement(query);
             ResultSet rs = pst.executeQuery();
 
             // Create columns for the table
-            String[] columns = {"Book Id", "Student Id", "Book Name", "Student Name", "Issue Date", "Due Date", "Return Date", "Status", "Fine Amount", "Fine Paid"};
+            String[] columns = {"Book Id", "Faculty Id", "Book Name", "Faculty Name", "Issue Date", "Due Date", "Return Date", "Status", "Fine Amount", "Fine Paid"};
 
             // Create DefaultTableModel with columns
             DefaultTableModel model = new DefaultTableModel(columns, 0);
@@ -131,7 +167,7 @@ public final class ViewRecords extends javax.swing.JFrame {
             while (rs.next()) {
                 Object[] rowData = {
                         rs.getString("book_id"),
-                        rs.getString("student_id"),
+                        rs.getString("faculty_id"),
                         rs.getString("book_name"),
                         rs.getString("fname"),
                         rs.getDate("issue_date"),
@@ -149,14 +185,7 @@ public final class ViewRecords extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error fetching records: " + e.getMessage());
         }
-     }
-    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel ob=(DefaultTableModel) AllRecords.getModel();
-            TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);
-            AllRecords.setRowSorter(obj);
-            obj.setRowFilter(RowFilter.regexFilter(search.getText()));
-    }//GEN-LAST:event_btnsearchActionPerformed
+    }
 
     /**
      * @param args the command line arguments
@@ -175,25 +204,27 @@ public final class ViewRecords extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacultyViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacultyViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacultyViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FacultyViewRecords.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new ViewRecords().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FacultyViewRecords().setVisible(true);
+            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable AllRecords;
-    private javax.swing.JButton btnsearch;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -37,12 +37,16 @@ public class StaffHome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         btnmanagebooks = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnissuebooks = new javax.swing.JButton();
         btnreturn = new javax.swing.JButton();
         btnAllrecords = new javax.swing.JButton();
-        btnviewissuedbooks = new javax.swing.JButton();
+        addstudents = new javax.swing.JButton();
+        btnaddfaculty = new javax.swing.JButton();
+        btnissue = new javax.swing.JButton();
+        btnreturnbooks = new javax.swing.JButton();
+        btnview = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         Student.setText("jMenuItem1");
         Popup.add(Student);
@@ -87,10 +91,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnmanagebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 255, -1, 60));
-
-        jLabel2.setText("Add User");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 139, 80, 50));
+        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, 60));
 
         jLabel1.setText("Home");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 103, 37, -1));
@@ -101,7 +102,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnissuebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(303, 258, -1, 54));
+        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, 54));
 
         btnreturn.setText("Return Books ");
         btnreturn.addActionListener(new java.awt.event.ActionListener() {
@@ -109,18 +110,48 @@ public class StaffHome extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, -1, 55));
+        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, 55));
 
         btnAllrecords.setText("View All Records");
-        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, -1, 53));
-
-        btnviewissuedbooks.setText("View Issued Books");
-        btnviewissuedbooks.addActionListener(new java.awt.event.ActionListener() {
+        btnAllrecords.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnviewissuedbooksActionPerformed(evt);
+                btnAllrecordsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnviewissuedbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 424, -1, 61));
+        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, 53));
+
+        addstudents.setText("Add Student");
+        addstudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addstudentsActionPerformed(evt);
+            }
+        });
+        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 110, 70));
+
+        btnaddfaculty.setText("Add Faculty");
+        btnaddfaculty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddfacultyActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnaddfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 110, 70));
+
+        btnissue.setText("Issue Books");
+        btnissue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnissueActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 100, 60));
+
+        btnreturnbooks.setText("Return Books");
+        getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 100, 60));
+
+        btnview.setText("View All Records");
+        getContentPane().add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 120, 70));
+
+        jLabel2.setText("Faculty");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -144,10 +175,6 @@ public class StaffHome extends javax.swing.JFrame {
          new ReturnBooks().setVisible(true);
     }//GEN-LAST:event_btnreturnActionPerformed
 
-    private void btnviewissuedbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewissuedbooksActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnviewissuedbooksActionPerformed
-
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_formMousePressed
@@ -155,6 +182,27 @@ public class StaffHome extends javax.swing.JFrame {
     private void btnmanagebooksMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnmanagebooksMouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_btnmanagebooksMouseReleased
+
+    private void addstudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addstudentsActionPerformed
+        // TODO add your handling code here:
+        new StudentRegister().setVisible(true);
+    }//GEN-LAST:event_addstudentsActionPerformed
+
+    private void btnAllrecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllrecordsActionPerformed
+        // TODO add your handling code here:
+        new ViewRecords().setVisible(true);
+    }//GEN-LAST:event_btnAllrecordsActionPerformed
+
+    private void btnaddfacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddfacultyActionPerformed
+        // TODO add your handling code here:
+        new FacultyRegister().setVisible(true);
+    }//GEN-LAST:event_btnaddfacultyActionPerformed
+
+    private void btnissueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissueActionPerformed
+        // TODO add your handling code here:
+        new FacultyIssueBook().setVisible(true);
+        
+    }//GEN-LAST:event_btnissueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,11 +243,15 @@ public class StaffHome extends javax.swing.JFrame {
     private javax.swing.JMenuItem Faculty;
     private javax.swing.JPopupMenu Popup;
     private javax.swing.JMenuItem Student;
+    private javax.swing.JButton addstudents;
     private javax.swing.JButton btnAllrecords;
+    private javax.swing.JButton btnaddfaculty;
+    private javax.swing.JButton btnissue;
     private javax.swing.JButton btnissuebooks;
     private javax.swing.JButton btnmanagebooks;
     private javax.swing.JButton btnreturn;
-    private javax.swing.JButton btnviewissuedbooks;
+    private javax.swing.JButton btnreturnbooks;
+    private javax.swing.JButton btnview;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
