@@ -50,6 +50,8 @@ public class IssueBook extends javax.swing.JFrame {
         btnissue = new javax.swing.JButton();
         bookid = new javax.swing.JTextField();
         studentid = new javax.swing.JTextField();
+        issuedate = new com.toedter.calendar.JDateChooser();
+        duedate = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,6 +79,8 @@ public class IssueBook extends javax.swing.JFrame {
         bookid.setText(" ");
         getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 147, 187, -1));
         getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 194, 176, -1));
+        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,6 +189,8 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bookid;
     private javax.swing.JButton btnissue;
+    private com.toedter.calendar.JDateChooser duedate;
+    private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
