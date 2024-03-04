@@ -43,8 +43,6 @@ public class IssueBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnissue = new javax.swing.JButton();
@@ -52,35 +50,66 @@ public class IssueBook extends javax.swing.JFrame {
         studentid = new javax.swing.JTextField();
         issuedate = new com.toedter.calendar.JDateChooser();
         duedate = new com.toedter.calendar.JDateChooser();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Book ID");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 150, -1, -1));
-
-        jLabel2.setText("Student ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 197, 68, -1));
-
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 51, 0));
         jLabel3.setText("Issue Date");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 258, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 51, 0));
         jLabel4.setText("Due Date");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 295, 68, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 68, -1));
 
+        btnissue.setBackground(new java.awt.Color(153, 51, 0));
+        btnissue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnissue.setForeground(new java.awt.Color(255, 255, 255));
         btnissue.setText("Issue");
         btnissue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnissueActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 354, -1, -1));
+        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, 80, 30));
 
         bookid.setText(" ");
-        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 147, 187, -1));
-        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 194, 176, -1));
-        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
-        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        bookid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 310, 50));
+
+        studentid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 310, 50));
+        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 310, 50));
+        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 310, 50));
+
+        jPanel1.setBackground(new java.awt.Color(153, 51, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 760, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 50, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel5.setText("Student Issue Book");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 180, 30));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 520));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -192,9 +221,10 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
     private com.toedter.calendar.JDateChooser duedate;
     private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField studentid;
     // End of variables declaration//GEN-END:variables
 }
