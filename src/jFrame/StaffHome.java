@@ -35,9 +35,7 @@ public class StaffHome extends javax.swing.JFrame {
         Student = new javax.swing.JMenuItem();
         Faculty = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
         btnmanagebooks = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         btnissuebooks = new javax.swing.JButton();
         btnreturn = new javax.swing.JButton();
         btnAllrecords = new javax.swing.JButton();
@@ -47,6 +45,9 @@ public class StaffHome extends javax.swing.JFrame {
         btnreturnbooks = new javax.swing.JButton();
         btnview = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         Student.setText("jMenuItem1");
         Popup.add(Student);
@@ -65,21 +66,6 @@ public class StaffHome extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, -1, -1));
 
-        jPanel6.setBackground(new java.awt.Color(153, 0, 255));
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 813, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 49, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
-
         btnmanagebooks.setText("Manage Books");
         btnmanagebooks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -91,10 +77,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnmanagebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, 60));
-
-        jLabel1.setText("Home");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 103, 37, -1));
+        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 60));
 
         btnissuebooks.setText("Issue Books");
         btnissuebooks.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +85,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnissuebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, 54));
+        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 54));
 
         btnreturn.setText("Return Books ");
         btnreturn.addActionListener(new java.awt.event.ActionListener() {
@@ -110,7 +93,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, 55));
+        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, 55));
 
         btnAllrecords.setText("View All Records");
         btnAllrecords.addActionListener(new java.awt.event.ActionListener() {
@@ -126,7 +109,7 @@ public class StaffHome extends javax.swing.JFrame {
                 addstudentsActionPerformed(evt);
             }
         });
-        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 110, 70));
+        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 110, 70));
 
         btnaddfaculty.setText("Add Faculty");
         btnaddfaculty.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +135,32 @@ public class StaffHome extends javax.swing.JFrame {
 
         jLabel2.setText("Faculty");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(153, 51, 0));
+
+        jLabel1.setText("Home");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(971, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(14, 14, 14))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, -1));
+
+        jLabel3.setText("Students");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -254,7 +263,8 @@ public class StaffHome extends javax.swing.JFrame {
     private javax.swing.JButton btnview;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

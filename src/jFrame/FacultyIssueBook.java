@@ -42,6 +42,7 @@ public class FacultyIssueBook extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel6 = new javax.swing.JLabel();
         bookid = new javax.swing.JTextField();
         facultyid = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -50,7 +51,10 @@ public class FacultyIssueBook extends javax.swing.JFrame {
         duedate = new com.toedter.calendar.JDateChooser();
         btnissue = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,9 +98,13 @@ public class FacultyIssueBook extends javax.swing.JFrame {
         jLabel5.setText("FACULTY ISSUE BOOK DETAILS");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 270, -1));
 
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 560));
+        jButton1.setText("      Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 80, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,6 +178,10 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
 // TODO add your handling code here:
     }//GEN-LAST:event_btnissueActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -209,6 +221,7 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
     private com.toedter.calendar.JDateChooser duedate;
     private javax.swing.JTextField facultyid;
     private com.toedter.calendar.JDateChooser issuedate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

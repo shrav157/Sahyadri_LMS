@@ -64,6 +64,8 @@ public class ReturnBooks extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Yes = new javax.swing.JRadioButton();
         No = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -94,7 +96,7 @@ public class ReturnBooks extends javax.swing.JFrame {
         getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 197, 71, -1));
 
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(295, 35, 37, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 37, -1));
 
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +119,24 @@ public class ReturnBooks extends javax.swing.JFrame {
         FinePaid.add(No);
         No.setText("No");
         getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+
+        jButton1.setText("   Back");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(153, 51, 0));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1028, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -313,6 +333,7 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private javax.swing.JButton btnsubmit;
     private com.toedter.calendar.JDateChooser duedate;
     private com.toedter.calendar.JDateChooser issuedate;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -320,6 +341,7 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser returndate;
     private javax.swing.JTextField studentid;
     // End of variables declaration//GEN-END:variables

@@ -92,7 +92,7 @@ public class MainOpen extends javax.swing.JFrame {
 
     private void btnlibstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlibstaffActionPerformed
         // TODO add your handling code here:
-        new AdminLogin().setVisible(true);
+        new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnlibstaffActionPerformed
 
     private void btnfacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacultyActionPerformed

@@ -42,7 +42,6 @@ public final class AdminLogin extends javax.swing.JFrame {
         btnalogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnSregister = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -105,13 +104,13 @@ public final class AdminLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btnSregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        jLabel3.setText("Button");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 540));
-
-        btnback.setText("Back");
-        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        btnback.setText("      Back");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -150,6 +149,10 @@ public final class AdminLogin extends javax.swing.JFrame {
     private void SpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SpasswordActionPerformed
+
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnbackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,7 +195,6 @@ public final class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

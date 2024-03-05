@@ -38,7 +38,7 @@ public final class AdminRegister extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         btnlogin = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -96,9 +96,13 @@ public final class AdminRegister extends javax.swing.JFrame {
         jLabel6.setText("Already registered?? ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, 30));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 460));
+        jButton1.setText("       Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 10, 90, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -157,6 +161,11 @@ public final class AdminRegister extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SnameActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new MainOpen().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,8 +206,8 @@ public final class AdminRegister extends javax.swing.JFrame {
     private javax.swing.JTextField Susername;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnlogin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
