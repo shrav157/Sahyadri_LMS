@@ -26,8 +26,9 @@ public final class StudentHome extends javax.swing.JFrame {
 
     /**
      * Creates new form StudentHome
+     * @param loggedInStudentID
      */
-    public StudentHome() throws SQLException {
+    public StudentHome(String loggedInStudentID) throws SQLException {
         try {
             initComponents();
 

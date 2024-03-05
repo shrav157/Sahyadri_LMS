@@ -99,7 +99,8 @@ try {
     rs = pst.executeQuery();
 
     if (rs.next()) {
-        new FacultyHome().setVisible(true);
+        String loggedInFacultyID = rs.getString("faculty_id");
+        new FacultyHome(loggedInFacultyID).setVisible(true);
         this.setVisible(false);
     } else {
         JOptionPane.showMessageDialog(this, "Login Credentials Incorrect");
@@ -140,10 +141,8 @@ try {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FacultyLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new FacultyLogin().setVisible(true);
         });
     }
 
