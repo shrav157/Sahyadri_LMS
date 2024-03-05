@@ -43,6 +43,7 @@ public final class AdminLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnSregister = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btnback = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -106,8 +107,11 @@ public final class AdminLogin extends javax.swing.JFrame {
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Button");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 540));
+
+        btnback.setText("Back");
+        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,6 +189,7 @@ public final class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JTextField Susername;
     private javax.swing.JButton btnSregister;
     private javax.swing.JButton btnalogin;
+    private javax.swing.JButton btnback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
