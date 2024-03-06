@@ -43,6 +43,7 @@ public final class AdminLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnSregister = new javax.swing.JButton();
         btnback = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -66,7 +67,7 @@ public final class AdminLogin extends javax.swing.JFrame {
                 SusernameActionPerformed(evt);
             }
         });
-        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 310, -1));
+        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 310, 50));
         Susername.getAccessibleContext().setAccessibleName("Username");
 
         Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
@@ -76,7 +77,7 @@ public final class AdminLogin extends javax.swing.JFrame {
                 SpasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 310, -1));
+        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 310, 50));
 
         btnalogin.setBackground(new java.awt.Color(153, 51, 0));
         btnalogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -111,6 +112,10 @@ public final class AdminLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -195,6 +200,7 @@ public final class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnback;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

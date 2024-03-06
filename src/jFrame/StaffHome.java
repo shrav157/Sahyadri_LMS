@@ -46,8 +46,9 @@ public class StaffHome extends javax.swing.JFrame {
         btnview = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         Student.setText("jMenuItem1");
         Popup.add(Student);
@@ -66,6 +67,9 @@ public class StaffHome extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 55, -1, -1));
 
+        btnmanagebooks.setBackground(new java.awt.Color(153, 51, 0));
+        btnmanagebooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnmanagebooks.setForeground(new java.awt.Color(255, 255, 255));
         btnmanagebooks.setText("Manage Books");
         btnmanagebooks.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -77,90 +81,132 @@ public class StaffHome extends javax.swing.JFrame {
                 btnmanagebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, 60));
+        getContentPane().add(btnmanagebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 490, 40));
 
+        btnissuebooks.setBackground(new java.awt.Color(153, 51, 0));
+        btnissuebooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnissuebooks.setForeground(new java.awt.Color(255, 255, 255));
         btnissuebooks.setText("Issue Books");
         btnissuebooks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnissuebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, 54));
+        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 130, 53));
 
+        btnreturn.setBackground(new java.awt.Color(153, 51, 0));
+        btnreturn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnreturn.setForeground(new java.awt.Color(255, 255, 255));
         btnreturn.setText("Return Books ");
         btnreturn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnreturnActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, 55));
+        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 130, 53));
 
+        btnAllrecords.setBackground(new java.awt.Color(153, 51, 0));
+        btnAllrecords.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnAllrecords.setForeground(new java.awt.Color(255, 255, 255));
         btnAllrecords.setText("View All Records");
         btnAllrecords.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAllrecordsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 170, -1, 53));
+        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 130, 53));
 
+        addstudents.setBackground(new java.awt.Color(153, 51, 0));
+        addstudents.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        addstudents.setForeground(new java.awt.Color(255, 255, 255));
         addstudents.setText("Add Student");
         addstudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addstudentsActionPerformed(evt);
             }
         });
-        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 110, 70));
+        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 130, 53));
 
+        btnaddfaculty.setBackground(new java.awt.Color(153, 51, 0));
+        btnaddfaculty.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnaddfaculty.setForeground(new java.awt.Color(255, 255, 255));
         btnaddfaculty.setText("Add Faculty");
         btnaddfaculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddfacultyActionPerformed(evt);
             }
         });
-        getContentPane().add(btnaddfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 110, 70));
+        getContentPane().add(btnaddfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 130, 53));
 
+        btnissue.setBackground(new java.awt.Color(153, 51, 0));
+        btnissue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnissue.setForeground(new java.awt.Color(255, 255, 255));
         btnissue.setText("Issue Books");
         btnissue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnissueActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 100, 60));
+        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 53));
 
+        btnreturnbooks.setBackground(new java.awt.Color(153, 51, 0));
+        btnreturnbooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnreturnbooks.setForeground(new java.awt.Color(255, 255, 255));
         btnreturnbooks.setText("Return Books");
-        getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 100, 60));
+        getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 130, 53));
 
+        btnview.setBackground(new java.awt.Color(153, 51, 0));
+        btnview.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnview.setForeground(new java.awt.Color(255, 255, 255));
         btnview.setText("View All Records");
-        getContentPane().add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 120, 70));
+        btnview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnviewActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 130, 53));
 
-        jLabel2.setText("Faculty");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel2.setText("Manage Faculty");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 120, 30));
 
         jPanel2.setBackground(new java.awt.Color(153, 51, 0));
 
-        jLabel1.setText("Home");
+        jButton2.setText("    Home");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(971, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(907, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(14, 14, 14))
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, -1));
 
-        jLabel3.setText("Students");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel3.setText("Manage Student");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, -1, -1));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -178,11 +224,6 @@ public class StaffHome extends javax.swing.JFrame {
         // TODO add your handling code here:
        new IssueBook().setVisible(true);
     }//GEN-LAST:event_btnissuebooksActionPerformed
-
-    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-        // TODO add your handling code here:
-         new ReturnBooks().setVisible(true);
-    }//GEN-LAST:event_btnreturnActionPerformed
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
         // TODO add your handling code here:
@@ -212,6 +253,19 @@ public class StaffHome extends javax.swing.JFrame {
         new FacultyIssueBook().setVisible(true);
         
     }//GEN-LAST:event_btnissueActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
+        // TODO add your handling code here:
+        new ReturnBooks().setVisible(true);
+    }//GEN-LAST:event_btnreturnActionPerformed
+
+    private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnviewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,6 +315,7 @@ public class StaffHome extends javax.swing.JFrame {
     private javax.swing.JButton btnreturn;
     private javax.swing.JButton btnreturnbooks;
     private javax.swing.JButton btnview;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

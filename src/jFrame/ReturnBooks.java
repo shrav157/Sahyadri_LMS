@@ -48,8 +48,6 @@ public class ReturnBooks extends javax.swing.JFrame {
     private void initComponents() {
 
         FinePaid = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -66,77 +64,110 @@ public class ReturnBooks extends javax.swing.JFrame {
         No = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Book ID");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 143, 62, -1));
-
-        jLabel2.setText("Student ID");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 200, 62, -1));
-
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(153, 51, 0));
         jLabel3.setText("Issue Date");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 259, 62, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 62, -1));
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 51, 0));
         jLabel4.setText("Due Date");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 333, 62, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 62, -1));
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(153, 51, 0));
         jLabel5.setText("Return Date");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 370, 77, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 77, -1));
 
+        btnsubmit.setBackground(new java.awt.Color(153, 51, 0));
+        btnsubmit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnsubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnsubmit.setText("Return");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, -1, -1));
-        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 140, 71, -1));
-        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 197, 71, -1));
+        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 80, 30));
 
-        jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 37, -1));
+        bookid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 310, 60));
 
+        studentid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 310, 60));
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel6.setText("Student Return Book");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 200, -1));
+
+        btnSearch.setBackground(new java.awt.Color(153, 51, 0));
+        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSearch.setForeground(new java.awt.Color(255, 255, 255));
         btnSearch.setText("Search");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 205, -1, -1));
-        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 170, -1));
-        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 320, 170, -1));
-        getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 170, -1));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 80, 40));
+        getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 310, 50));
+        getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 310, 50));
+        getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 310, 50));
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(153, 51, 0));
         jLabel7.setText("Fine Paid");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 450, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, -1, -1));
 
         FinePaid.add(Yes);
         Yes.setText("Yes");
-        getContentPane().add(Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, -1, -1));
+        getContentPane().add(Yes, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
 
         FinePaid.add(No);
         No.setText("No");
-        getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 460, -1, -1));
+        getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, -1));
 
         jButton1.setText("   Back");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
+
+        jButton2.setText("    Home");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1028, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(907, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 52, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, -1));
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -291,6 +322,10 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
 
     }//GEN-LAST:event_btnsubmitActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -334,13 +369,13 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private com.toedter.calendar.JDateChooser duedate;
     private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser returndate;
     private javax.swing.JTextField studentid;

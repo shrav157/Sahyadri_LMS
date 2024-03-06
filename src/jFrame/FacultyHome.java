@@ -165,6 +165,7 @@ private void showFacultyDetails(String facultyID) {
         });
         getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 120, 40));
 
+        jLabel2.setForeground(new java.awt.Color(153, 51, 0));
         jLabel2.setText("My Transaction");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, 20));
 

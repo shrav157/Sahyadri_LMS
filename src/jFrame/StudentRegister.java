@@ -36,12 +36,6 @@ public class StudentRegister extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btnStudent = new javax.swing.JButton();
         fname = new javax.swing.JTextField();
         lname = new javax.swing.JTextField();
@@ -50,71 +44,92 @@ public class StudentRegister extends javax.swing.JFrame {
         usn = new javax.swing.JTextField();
         branch = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Add Students");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, -1, -1));
 
-        jLabel2.setText("First Name");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 156, -1, -1));
-
-        jLabel3.setText("Last Name");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(353, 204, -1, -1));
-
-        jLabel4.setText("Email ID");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(364, 264, -1, -1));
-
-        jLabel5.setText("Phone no.");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(357, 330, -1, -1));
-
-        jLabel6.setText("USN");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(352, 379, 38, -1));
-
-        jLabel7.setText("Branch");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 437, 48, -1));
-
+        btnStudent.setBackground(new java.awt.Color(153, 51, 0));
+        btnStudent.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnStudent.setForeground(new java.awt.Color(255, 255, 255));
         btnStudent.setText("Add Student");
         btnStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStudentActionPerformed(evt);
             }
         });
-        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 502, -1, -1));
-        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 156, 71, -1));
-        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 201, 71, -1));
+        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 110, 40));
 
+        fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 310, 60));
+
+        lname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Last Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 310, 60));
+
+        email.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 264, 71, -1));
-        getContentPane().add(phonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 327, 71, -1));
-        getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(557, 376, 71, -1));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 310, 60));
 
+        phonenumber.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Phone No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(phonenumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 310, 60));
+
+        usn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        usn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 310, 60));
+
+        branch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Branch", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         branch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 branchActionPerformed(evt);
             }
         });
-        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 437, 71, -1));
+        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 310, 60));
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
+
+        jButton2.setText("    Home");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(639, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, -1));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -171,6 +186,14 @@ public class StudentRegister extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnStudentActionPerformed
 
+    private void usnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usnActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -211,13 +234,9 @@ public class StudentRegister extends javax.swing.JFrame {
     private javax.swing.JButton btnStudent;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField lname;
     private javax.swing.JTextField phonenumber;
