@@ -157,6 +157,7 @@ public final class AdminLogin extends javax.swing.JFrame {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
+        new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnbackActionPerformed
 
     /**

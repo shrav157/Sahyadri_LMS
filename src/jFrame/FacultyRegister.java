@@ -11,9 +11,7 @@ import javax.swing.JOptionPane;
  */
 public class FacultyRegister extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FacultyRegister
-     */
+    
     public FacultyRegister() {
         initComponents();
         Connect();

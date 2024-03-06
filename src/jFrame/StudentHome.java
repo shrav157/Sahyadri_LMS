@@ -132,7 +132,7 @@ public void showRecord(){
         myrecords = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        Btnnotify = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         usn = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -190,9 +190,14 @@ public void showRecord(){
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Notifies");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+        Btnnotify.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Btnnotify.setText("Notifies");
+        Btnnotify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnnotifyActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Btnnotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
@@ -218,6 +223,12 @@ public void showRecord(){
             obj.setRowFilter(RowFilter.regexFilter(searchrecord.getText()));
 
     }//GEN-LAST:event_btnSearchActionPerformed
+
+    private void BtnnotifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnnotifyActionPerformed
+        // TODO add your handling code here:
+       
+       
+    }//GEN-LAST:event_BtnnotifyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -258,9 +269,9 @@ public void showRecord(){
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btnnotify;
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
