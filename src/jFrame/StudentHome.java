@@ -46,14 +46,15 @@ public final class StudentHome extends javax.swing.JFrame {
     
 
     
-public void showRecord(){
-       
-            try {
+public void showRecord() {
+    try {
         pst = con.prepareStatement("SELECT * FROM BOOKS");
         rs = pst.executeQuery();
         ResultSetMetaData rsm = rs.getMetaData();
         int n = rsm.getColumnCount();
         DefaultTableModel df = (DefaultTableModel) bookrecords.getModel();
+        
+        // Clear existing rows
         df.setRowCount(0);
 
         while (rs.next()) {
@@ -63,11 +64,14 @@ public void showRecord(){
             }
             df.addRow(obj);
         }
+
+        // Make the table non-editable
+        bookrecords.setDefaultEditor(Object.class, null);
+
     } catch (SQLException ex) {
-        
+        Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
     }
 }
-
              private void showStudentDetails(String studentID) {
         try {
             pst = con.prepareStatement("SELECT * FROM STUDENTS WHERE student_id = ?");
@@ -109,7 +113,7 @@ public void showRecord(){
                 obj.add(rs.getString("fine_paid"));
                 obj.add(rs.getString("status"));
                 df.addRow(obj);
-            }
+            } myrecords.setDefaultEditor(Object.class, null);
         } catch (SQLException ex) {
             Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -40,20 +40,22 @@ public final class ManageBooks extends javax.swing.JFrame {
                 bookrecordsMouseClicked(evt);
             }
         });
+                
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
             }
 
     }
     
-    public void showRecord(){
-       
-            try {
+   public void showRecord() {
+    try {
         pst = con.prepareStatement("SELECT * FROM BOOKS");
         rs = pst.executeQuery();
         ResultSetMetaData rsm = rs.getMetaData();
         int n = rsm.getColumnCount();
         DefaultTableModel df = (DefaultTableModel) bookrecords.getModel();
+        
+        // Clear existing rows
         df.setRowCount(0);
 
         while (rs.next()) {
@@ -63,11 +65,15 @@ public final class ManageBooks extends javax.swing.JFrame {
             }
             df.addRow(obj);
         }
+
+        // Make the table non-editable
+        bookrecords.setDefaultEditor(Object.class, null);
+
     } catch (SQLException ex) {
         Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
 
-    }
     
     
     /**
@@ -95,8 +101,9 @@ public final class ManageBooks extends javax.swing.JFrame {
         bookrecords = new javax.swing.JTable();
         btnaddbooks = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        btnclear = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(200, 0, 0, 0));
@@ -126,7 +133,7 @@ public final class ManageBooks extends javax.swing.JFrame {
                 BtnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(Btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, 100, 30));
+        getContentPane().add(Btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 100, 30));
 
         Btndelete.setBackground(new java.awt.Color(153, 51, 0));
         Btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -137,8 +144,8 @@ public final class ManageBooks extends javax.swing.JFrame {
                 BtndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(Btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 550, 100, 30));
-        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 530, 38));
+        getContentPane().add(Btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 100, 30));
+        getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 530, 38));
 
         btnSearch.setBackground(new java.awt.Color(153, 51, 0));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -149,13 +156,13 @@ public final class ManageBooks extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, 123, 39));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 110, 39));
 
         bookname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(bookname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 310, 60));
+        getContentPane().add(bookname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 310, 60));
 
         authorname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Author Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(authorname, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 310, 60));
+        getContentPane().add(authorname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 310, 60));
 
         domain.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Domain", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         domain.addActionListener(new java.awt.event.ActionListener() {
@@ -163,16 +170,16 @@ public final class ManageBooks extends javax.swing.JFrame {
                 domainActionPerformed(evt);
             }
         });
-        getContentPane().add(domain, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 310, 60));
+        getContentPane().add(domain, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 310, 60));
 
         qty.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Quantity", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 310, 60));
+        getContentPane().add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 310, 60));
 
         rack.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rack No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(rack, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 310, 60));
+        getContentPane().add(rack, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 310, 60));
 
         edition.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edition", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 310, 60));
+        getContentPane().add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 310, 60));
 
         bookrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,7 +191,7 @@ public final class ManageBooks extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(bookrecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 590, 930, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 710, 140));
 
         btnaddbooks.setBackground(new java.awt.Color(153, 51, 0));
         btnaddbooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -195,19 +202,27 @@ public final class ManageBooks extends javax.swing.JFrame {
                 btnaddbooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnaddbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 550, 100, 30));
+        getContentPane().add(btnaddbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 100, 30));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 51, 0));
         jLabel7.setText("Manage books");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 160, 30));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 780));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 160, 30));
 
         jButton1.setText("     Back");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 30));
+
+        btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 100, 30));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 780, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -327,6 +342,16 @@ private void bookrecordsMouseClicked(java.awt.event.MouseEvent evt) {
          new StaffHome().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        // TODO add your handling code here:
+        bookname.setText("");
+        authorname.setText("");
+        domain.setText("");
+        qty.setText("");
+        rack.setText("");
+        edition.setText("");
+    }//GEN-LAST:event_btnclearActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -372,6 +397,7 @@ private void bookrecordsMouseClicked(java.awt.event.MouseEvent evt) {
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnaddbooks;
+    private javax.swing.JButton btnclear;
     private javax.swing.JTextField domain;
     private javax.swing.JTextField edition;
     private javax.swing.JButton jButton1;

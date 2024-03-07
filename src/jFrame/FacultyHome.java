@@ -40,14 +40,15 @@ Connection con=null;
             }
 
     }
-public void showRecord(){
-       
-            try {
+public void showRecord() {
+    try {
         pst = con.prepareStatement("SELECT * FROM BOOKS");
         rs = pst.executeQuery();
         ResultSetMetaData rsm = rs.getMetaData();
         int n = rsm.getColumnCount();
         DefaultTableModel df = (DefaultTableModel) bookrecords.getModel();
+        
+        // Clear existing rows
         df.setRowCount(0);
 
         while (rs.next()) {
@@ -57,11 +58,14 @@ public void showRecord(){
             }
             df.addRow(obj);
         }
+
+        // Make the table non-editable
+        bookrecords.setDefaultEditor(Object.class, null);
+
     } catch (SQLException ex) {
-        Logger.getLogger(FacultyHome.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
     }
-    }
-    
+} 
 private void showFacultyDetails(String facultyID) {
         try {
             pst = con.prepareStatement("SELECT * FROM FACULTY WHERE faculty_id = ?");

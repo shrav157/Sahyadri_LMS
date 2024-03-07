@@ -94,7 +94,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnissuebooksActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 130, 53));
+        getContentPane().add(btnissuebooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 130, 53));
 
         btnreturn.setBackground(new java.awt.Color(153, 51, 0));
         btnreturn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -105,7 +105,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnreturnActionPerformed(evt);
             }
         });
-        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 130, 53));
+        getContentPane().add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, 130, 53));
 
         btnAllrecords.setBackground(new java.awt.Color(153, 51, 0));
         btnAllrecords.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -116,7 +116,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnAllrecordsActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 250, 130, 53));
+        getContentPane().add(btnAllrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 130, 53));
 
         addstudents.setBackground(new java.awt.Color(153, 51, 0));
         addstudents.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -127,7 +127,7 @@ public class StaffHome extends javax.swing.JFrame {
                 addstudentsActionPerformed(evt);
             }
         });
-        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 130, 53));
+        getContentPane().add(addstudents, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 130, 53));
 
         btnaddfaculty.setBackground(new java.awt.Color(153, 51, 0));
         btnaddfaculty.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -138,7 +138,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnaddfacultyActionPerformed(evt);
             }
         });
-        getContentPane().add(btnaddfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 430, 130, 53));
+        getContentPane().add(btnaddfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 430, 130, 53));
 
         btnissue.setBackground(new java.awt.Color(153, 51, 0));
         btnissue.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -149,13 +149,13 @@ public class StaffHome extends javax.swing.JFrame {
                 btnissueActionPerformed(evt);
             }
         });
-        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 130, 53));
+        getContentPane().add(btnissue, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, 130, 53));
 
         btnreturnbooks.setBackground(new java.awt.Color(153, 51, 0));
         btnreturnbooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnreturnbooks.setForeground(new java.awt.Color(255, 255, 255));
         btnreturnbooks.setText("Return Books");
-        getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 430, 130, 53));
+        getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 130, 53));
 
         btnview.setBackground(new java.awt.Color(153, 51, 0));
         btnview.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -166,7 +166,7 @@ public class StaffHome extends javax.swing.JFrame {
                 btnviewActionPerformed(evt);
             }
         });
-        getContentPane().add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 130, 53));
+        getContentPane().add(btnview, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 430, 130, 53));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 51, 0));
@@ -205,7 +205,7 @@ public class StaffHome extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 560));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -4,9 +4,13 @@
  */
 package jFrame;
 import java.sql.*;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -22,11 +26,24 @@ public class StudentRegister extends javax.swing.JFrame {
         Connect();
     }
     Connection con;
-    PreparedStatement pst;
+    Statement st=null;
+        PreparedStatement pst=null;
+        ResultSet rs=null;
     public void Connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system","root","Sahyadri@157");
+            showRecord();
+            AllRecords.addMouseListener(new java.awt.event.MouseAdapter() {
+    @Override
+    public void mouseClicked(java.awt.event.MouseEvent evt) {
+        studentRecordsMouseClicked(evt);
+    }
+});
+
+            // Add this code inside your constructor, after initComponents()
+
+
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -45,7 +62,13 @@ public class StudentRegister extends javax.swing.JFrame {
         branch = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        searchrecords = new javax.swing.JTextField();
+        btnsearch = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        AllRecords = new javax.swing.JTable();
+        btnupdate = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        btnclear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 150, 0, 0));
@@ -65,7 +88,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 btnStudentActionPerformed(evt);
             }
         });
-        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 110, 40));
+        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 110, 40));
 
         fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 310, 60));
@@ -114,10 +137,51 @@ public class StudentRegister extends javax.swing.JFrame {
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 6, 96, 38));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 50));
+        getContentPane().add(searchrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 600, 50));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 610));
+        btnsearch.setText("Search");
+        btnsearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsearchActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 600, 120, 50));
+
+        AllRecords.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "First name", "Last name", "Email Id", "Phone no.", "USN", "Branch"
+            }
+        ));
+        jScrollPane1.setViewportView(AllRecords);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 730, 170));
+
+        btnupdate.setText("Update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+
+        btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
+
+        btnclear.setText("Clear");
+        btnclear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnclearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,7 +193,29 @@ public class StudentRegister extends javax.swing.JFrame {
     private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
+     public void showRecord() {
+    try {
+        pst = con.prepareStatement("SELECT fname, lname, email, phonenumber, usn, branch FROM STUDENTS");
+        rs = pst.executeQuery();
+        ResultSetMetaData rsm = rs.getMetaData();
+        int n = rsm.getColumnCount();
+        DefaultTableModel df = (DefaultTableModel) AllRecords.getModel();
+        df.setRowCount(0);
 
+        while (rs.next()) {
+            Vector obj = new Vector();
+            for (int i = 1; i <= n; i++) {
+                obj.add(rs.getString(i));
+            }
+            df.addRow(obj);
+        }
+    } catch (SQLException ex) {
+        // Handle the exception
+    }
+}
+
+
+    
     private void btnStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentActionPerformed
         // TODO add your handling code here:
         String First = fname.getText();
@@ -165,6 +251,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(this,"Registation Failed!!");
                 }
+                showRecord();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,"Registration Failed! Error"+ex.getMessage());
             Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
@@ -183,9 +270,114 @@ public class StudentRegister extends javax.swing.JFrame {
          new StaffHome().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+         try {
+        if (hasIssuedBooks(usn.getText())) {
+            JOptionPane.showMessageDialog(this, "Student has issued books. Cannot update until books are returned.");
+            return;
+        }
+
+        pst = con.prepareStatement("UPDATE STUDENTS SET fname=?, lname=?, email=?, phonenumber=?, branch=? WHERE usn=?");
+        pst.setString(1, fname.getText());
+        pst.setString(2, lname.getText());
+        pst.setString(3, email.getText());
+        pst.setString(4, phonenumber.getText());
+        pst.setString(5, branch.getText());
+        pst.setString(6, usn.getText());
+
+        int rowsAffected = pst.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Record updated successfully");
+            showRecord();
+        } else {
+            JOptionPane.showMessageDialog(this, "Update failed. Student with provided USN not found.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Update failed! Error: " + ex.getMessage());
+        Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        // TODO add your handling code here:
+         try {
+            String usnValue = usn.getText();
+            if (usnValue.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter the USN for deletion.");
+                return;
+            }
+
+            // Validate if the student has issued a book
+            if (hasIssuedBooks(usnValue)) {
+                JOptionPane.showMessageDialog(this, "Student has issued books. Cannot delete.");
+                return;
+            }
+
+            String query = "DELETE FROM students WHERE student_id=?";
+            try (PreparedStatement pst = con.prepareStatement(query)) {
+                pst.setString(1, usnValue);
+
+                int rowsAffected = pst.executeUpdate();
+
+                if (rowsAffected > 0) {
+                    JOptionPane.showMessageDialog(this, "Record deleted successfully");
+                    showRecord(); // Refresh the table after deleting
+                    clearFields();
+                } else {
+                    JOptionPane.showMessageDialog(this, "Deletion failed. Student with provided USN not found.");
+                }
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Deletion failed! Error: " + ex.getMessage());
+            Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btndeleteActionPerformed
+
+       private boolean hasIssuedBooks(String student_id) throws SQLException {
+    pst = con.prepareStatement("SELECT COUNT(*) FROM BOOK_ISSUE WHERE student_id = ?");
+    pst.setString(1, student_id);
+    rs = pst.executeQuery();
+    rs.next();
+    int count = rs.getInt(1);
+    return count > 0;
+}
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+        // TODO add your handling code here:
+        fname.setText("");
+        lname.setText("");
+        email.setText("");
+        phonenumber.setText("");
+        usn.setText("");
+        branch.setText("");
+    }//GEN-LAST:event_btnclearActionPerformed
+
+    private void btnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsearchActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel ob=(DefaultTableModel) AllRecords.getModel();
+            TableRowSorter<DefaultTableModel> obj=new TableRowSorter<>(ob);
+            AllRecords.setRowSorter(obj);
+            obj.setRowFilter(RowFilter.regexFilter(searchrecords.getText()));
+    }//GEN-LAST:event_btnsearchActionPerformed
+    private void studentRecordsMouseClicked(java.awt.event.MouseEvent evt) {
+    int rowIndex = AllRecords.getSelectedRow();
+
+    DefaultTableModel model = (DefaultTableModel) AllRecords.getModel();
+    System.out.println("Selected Row Index: " + rowIndex);
+    for (int i = 0; i < model.getColumnCount(); i++) {
+        System.out.println(model.getColumnName(i) + ": " + model.getValueAt(rowIndex, i));
+    }
+    fname.setText(model.getValueAt(rowIndex, 0).toString());
+    lname.setText(model.getValueAt(rowIndex, 1).toString());
+    email.setText(model.getValueAt(rowIndex, 2).toString());
+    phonenumber.setText(model.getValueAt(rowIndex, 3).toString());
+    usn.setText(model.getValueAt(rowIndex, 4).toString());
+    branch.setText(model.getValueAt(rowIndex, 5).toString());
+}
+
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -211,24 +403,32 @@ public class StudentRegister extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new StudentRegister().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new StudentRegister().setVisible(true);
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable AllRecords;
     private javax.swing.JTextField branch;
     private javax.swing.JButton btnStudent;
+    private javax.swing.JButton btnclear;
+    private javax.swing.JButton btndelete;
+    private javax.swing.JButton btnsearch;
+    private javax.swing.JButton btnupdate;
     private javax.swing.JTextField email;
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lname;
     private javax.swing.JTextField phonenumber;
+    private javax.swing.JTextField searchrecords;
     private javax.swing.JTextField usn;
     // End of variables declaration//GEN-END:variables
+
+    private void clearFields() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

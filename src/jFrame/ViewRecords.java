@@ -157,7 +157,7 @@ public final class ViewRecords extends javax.swing.JFrame {
                 };
                 model.addRow(rowData);
             }
-
+             AllRecords.setDefaultEditor(Object.class, null);
             // Set the model to your JTable (AllRecords)
             AllRecords.setModel(model);
         } catch (SQLException e) {
