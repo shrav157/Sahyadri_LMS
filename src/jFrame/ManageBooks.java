@@ -34,6 +34,12 @@ public final class ManageBooks extends javax.swing.JFrame {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/sahyadri_library_management_system", "root", "Sahyadri@157");
                 showRecord();
+                bookrecords.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bookrecordsMouseClicked(evt);
+            }
+        });
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(ManageBooks.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -62,6 +68,8 @@ public final class ManageBooks extends javax.swing.JFrame {
     }
 
     }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -274,6 +282,25 @@ public final class ManageBooks extends javax.swing.JFrame {
 }
              showRecord();
     }//GEN-LAST:event_btnaddbooksActionPerformed
+private void bookrecordsMouseClicked(java.awt.event.MouseEvent evt) {
+    int rowIndex = bookrecords.getSelectedRow();
+
+    DefaultTableModel model = (DefaultTableModel) bookrecords.getModel();
+    System.out.println("Selected Row Index: " + rowIndex);
+
+    // Print the data from the selected row
+    for (int i = 0; i < model.getColumnCount(); i++) {
+        System.out.println(model.getColumnName(i) + ": " + model.getValueAt(rowIndex, i));
+    }
+
+    bookname.setText(model.getValueAt(rowIndex, 1).toString());
+    authorname.setText(model.getValueAt(rowIndex, 2).toString());
+    domain.setText(model.getValueAt(rowIndex, 3).toString());
+    qty.setText(model.getValueAt(rowIndex, 4).toString());
+    rack.setText(model.getValueAt(rowIndex, 5).toString());
+    edition.setText(model.getValueAt(rowIndex, 6).toString());
+}
+
 
     private void BtnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnupdateActionPerformed
         try {
