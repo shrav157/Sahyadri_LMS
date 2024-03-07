@@ -106,6 +106,9 @@ public final class AdminLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btnSregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
+        btnback.setBackground(new java.awt.Color(153, 51, 0));
+        btnback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnback.setForeground(new java.awt.Color(255, 255, 255));
         btnback.setText("      Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +119,7 @@ public final class AdminLogin extends javax.swing.JFrame {
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 540));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

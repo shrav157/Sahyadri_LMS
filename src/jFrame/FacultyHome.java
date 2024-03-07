@@ -112,6 +112,8 @@ private void showFacultyDetails(String facultyID) {
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         searchrecord = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
@@ -122,15 +124,16 @@ private void showFacultyDetails(String facultyID) {
         fno = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         myrecords = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         name1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         usn = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(400, 150, 0, 0));
         setMinimumSize(new java.awt.Dimension(750, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -138,19 +141,36 @@ private void showFacultyDetails(String facultyID) {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(153, 51, 0));
         jButton2.setText("Notifies");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 51, 0));
+        jButton1.setText("About ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(153, 51, 0));
+        jButton3.setText("Log Out");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 823, 50));
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Available Books");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, -1, -1));
 
         searchrecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,6 +190,7 @@ private void showFacultyDetails(String facultyID) {
         });
         getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 120, 40));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 51, 0));
         jLabel2.setText("My Transaction");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, 20));
@@ -187,8 +208,12 @@ private void showFacultyDetails(String facultyID) {
         jScrollPane1.setViewportView(bookrecords);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 760, 130));
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 110, 20));
-        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 80, 20));
+
+        name.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, 50));
+
+        fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, 60));
 
         myrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,13 +226,13 @@ private void showFacultyDetails(String facultyID) {
         jScrollPane2.setViewportView(myrecords);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 760, 180));
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 820, 530));
         getContentPane().add(name1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 820, 530));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -227,6 +252,10 @@ private void showFacultyDetails(String facultyID) {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -270,7 +299,9 @@ private void showFacultyDetails(String facultyID) {
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
     private javax.swing.JLabel fno;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

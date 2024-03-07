@@ -62,7 +62,6 @@ public class ReturnBooks extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Yes = new javax.swing.JRadioButton();
         No = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
@@ -135,12 +134,11 @@ public class ReturnBooks extends javax.swing.JFrame {
         No.setText("No");
         getContentPane().add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, -1));
 
-        jButton1.setText("   Back");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(153, 51, 0));
         jButton2.setText("    Home");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -354,7 +352,6 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private javax.swing.JButton btnsubmit;
     private com.toedter.calendar.JDateChooser duedate;
     private com.toedter.calendar.JDateChooser issuedate;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

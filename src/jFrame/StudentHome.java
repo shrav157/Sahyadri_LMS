@@ -133,6 +133,8 @@ public void showRecord(){
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         Btnnotify = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         usn = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -192,13 +194,29 @@ public void showRecord(){
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Btnnotify.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Btnnotify.setForeground(new java.awt.Color(153, 51, 0));
         Btnnotify.setText("Notifies");
         Btnnotify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnnotifyActionPerformed(evt);
             }
         });
-        jPanel1.add(Btnnotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+        jPanel1.add(Btnnotify, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(153, 51, 0));
+        jButton1.setText("About ");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(153, 51, 0));
+        jButton3.setText("Log Out");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
@@ -207,7 +225,7 @@ public void showRecord(){
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder("USN"));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, 60));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
@@ -230,6 +248,10 @@ public void showRecord(){
        
        
     }//GEN-LAST:event_BtnnotifyActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -273,6 +295,8 @@ public void showRecord(){
     private javax.swing.JButton Btnnotify;
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
