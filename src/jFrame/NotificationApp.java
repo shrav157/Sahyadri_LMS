@@ -43,23 +43,33 @@ public class NotificationApp extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         message = new javax.swing.JTextField();
         btnsubmit = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Message");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 35, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
 
         message.setText("Message:");
-        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 104, 686, 180));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 686, 180));
 
+        btnsubmit.setBackground(new java.awt.Color(153, 51, 0));
+        btnsubmit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnsubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnsubmit.setText("Submit");
         btnsubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnsubmitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 349, -1, -1));
+        getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 30));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,6 +153,7 @@ public class NotificationApp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnsubmit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField message;
     // End of variables declaration//GEN-END:variables
 }
