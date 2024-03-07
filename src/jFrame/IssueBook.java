@@ -57,6 +57,7 @@ public class IssueBook extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(400, 150, 0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

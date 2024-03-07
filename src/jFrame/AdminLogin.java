@@ -47,6 +47,7 @@ public final class AdminLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
+        setBounds(new java.awt.Rectangle(400, 150, 0, 0));
         setSize(new java.awt.Dimension(700, 450));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
