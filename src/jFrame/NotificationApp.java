@@ -40,10 +40,18 @@ public class NotificationApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jLabel1 = new javax.swing.JLabel();
         message = new javax.swing.JTextField();
         btnsubmit = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+
+        jScrollPane1.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -52,9 +60,7 @@ public class NotificationApp extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
         jLabel1.setText("Message");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
-
-        message.setText("Message:");
-        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 686, 180));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 690, 110));
 
         btnsubmit.setBackground(new java.awt.Color(153, 51, 0));
         btnsubmit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -67,9 +73,8 @@ public class NotificationApp extends javax.swing.JFrame {
         });
         getContentPane().add(btnsubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 80, 30));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 470));
+        jLabel3.setText("Type your message here:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 110, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -154,6 +159,9 @@ public class NotificationApp extends javax.swing.JFrame {
     private javax.swing.JButton btnsubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTextField message;
     // End of variables declaration//GEN-END:variables
 }
