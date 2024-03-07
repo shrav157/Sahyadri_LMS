@@ -135,7 +135,7 @@ try {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
-        new AdminRegister().setVisible(true);
+        new MainOpen().setVisible(true);
     }//GEN-LAST:event_btnbackActionPerformed
 
     /**
