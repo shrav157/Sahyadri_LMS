@@ -68,7 +68,7 @@ public final class AdminLogin extends javax.swing.JFrame {
                 SusernameActionPerformed(evt);
             }
         });
-        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 310, 50));
+        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 310, 60));
         Susername.getAccessibleContext().setAccessibleName("Username");
 
         Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
@@ -78,7 +78,7 @@ public final class AdminLogin extends javax.swing.JFrame {
                 SpasswordActionPerformed(evt);
             }
         });
-        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 310, 50));
+        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 310, 60));
 
         btnalogin.setBackground(new java.awt.Color(153, 51, 0));
         btnalogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

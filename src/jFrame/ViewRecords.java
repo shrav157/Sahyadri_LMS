@@ -58,9 +58,9 @@ public final class ViewRecords extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
-        jLabel1.setText("RECORDS");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, 140, -1));
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 433, 49));
+        jLabel1.setText("STUDENT RECORDS");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, 200, -1));
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 110, 670, 49));
 
         btnsearch.setBackground(new java.awt.Color(153, 51, 0));
         btnsearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -71,7 +71,7 @@ public final class ViewRecords extends javax.swing.JFrame {
                 btnsearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 110, 80, 50));
+        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 80, 50));
 
         AllRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

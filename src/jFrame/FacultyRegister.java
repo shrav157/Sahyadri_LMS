@@ -68,6 +68,7 @@ public class FacultyRegister extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Add Faculty");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 170, 30));
 
@@ -83,19 +84,19 @@ public class FacultyRegister extends javax.swing.JFrame {
         getContentPane().add(btnaddFaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, 110, 40));
 
         fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 310, 50));
+        getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 310, 60));
 
         lname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Last Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 310, 50));
+        getContentPane().add(lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 310, 60));
 
         email.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email_ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 310, 50));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 310, 60));
 
         fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty Number", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 310, 50));
+        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 310, 60));
 
         branch.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Branch", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 310, 50));
+        getContentPane().add(branch, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, 310, 60));
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N

@@ -50,7 +50,8 @@ public final class StudentLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         usn = new javax.swing.JPasswordField();
-        jLabel5 = new javax.swing.JLabel();
+        btnback = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 150, 0, 0));
@@ -83,9 +84,20 @@ public final class StudentLogin extends javax.swing.JFrame {
         usn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 310, 60));
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 600));
+        btnback.setBackground(new java.awt.Color(153, 51, 0));
+        btnback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnback.setForeground(new java.awt.Color(255, 255, 255));
+        btnback.setText("      Back");
+        btnback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbackActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 30));
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -121,6 +133,11 @@ try {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
+        // TODO add your handling code here:
+        new AdminRegister().setVisible(true);
+    }//GEN-LAST:event_btnbackActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -155,10 +172,11 @@ try {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnback;
     private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField usn;
     // End of variables declaration//GEN-END:variables
 }

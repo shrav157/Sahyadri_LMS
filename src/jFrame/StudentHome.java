@@ -221,7 +221,7 @@ public void showRecord(){
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
         name.setBorder(javax.swing.BorderFactory.createTitledBorder("Name"));
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 50));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 60));
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
         jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder("USN"));

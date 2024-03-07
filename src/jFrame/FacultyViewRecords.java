@@ -64,7 +64,7 @@ public class FacultyViewRecords extends javax.swing.JFrame {
                 searchActionPerformed(evt);
             }
         });
-        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 399, 41));
+        getContentPane().add(search, new org.netbeans.lib.awtextra.AbsoluteConstraints(59, 160, 650, 41));
 
         btnSearch.setBackground(new java.awt.Color(153, 51, 0));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -75,7 +75,7 @@ public class FacultyViewRecords extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 100, 40));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 100, 40));
 
         AllRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

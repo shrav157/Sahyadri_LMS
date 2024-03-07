@@ -210,7 +210,7 @@ private void showFacultyDetails(String facultyID) {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 760, 130));
 
         name.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, 50));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, 60));
 
         fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, 60));

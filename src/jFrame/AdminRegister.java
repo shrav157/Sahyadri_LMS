@@ -57,7 +57,7 @@ public final class AdminRegister extends javax.swing.JFrame {
                 SnameActionPerformed(evt);
             }
         });
-        getContentPane().add(Sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 310, 50));
+        getContentPane().add(Sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 310, 60));
 
         Semail.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Email", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         Semail.addActionListener(new java.awt.event.ActionListener() {
@@ -65,13 +65,13 @@ public final class AdminRegister extends javax.swing.JFrame {
                 SemailActionPerformed(evt);
             }
         });
-        getContentPane().add(Semail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 310, 50));
+        getContentPane().add(Semail, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 310, 60));
 
         Susername.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 310, 50));
+        getContentPane().add(Susername, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 310, 60));
 
         Spassword.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 310, 50));
+        getContentPane().add(Spassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 310, 60));
 
         btnRegister.setBackground(new java.awt.Color(153, 51, 0));
         btnRegister.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

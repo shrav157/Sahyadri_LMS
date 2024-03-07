@@ -109,10 +109,10 @@ public class FacultyReturnBooks extends javax.swing.JFrame {
                 bookidActionPerformed(evt);
             }
         });
-        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 310, 50));
+        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 310, 60));
 
         facultyid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(facultyid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 310, 50));
+        getContentPane().add(facultyid, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 310, 60));
         getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 310, 50));
         getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 310, 50));
         getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, 310, 50));

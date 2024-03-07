@@ -83,10 +83,10 @@ public class IssueBook extends javax.swing.JFrame {
 
         bookid.setText(" ");
         bookid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Book ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 310, 50));
+        getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 310, 60));
 
         studentid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 310, 50));
+        getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 310, 60));
         getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 310, 50));
         getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 310, 50));
 
