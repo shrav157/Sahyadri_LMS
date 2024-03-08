@@ -175,7 +175,7 @@ public void showRecord() {
         ));
         jScrollPane1.setViewportView(bookrecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 790, 160));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 730, 160));
 
         myrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,7 +187,7 @@ public void showRecord() {
         ));
         jScrollPane2.setViewportView(myrecords);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 818, 155));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 730, 160));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 51, 0));
@@ -238,7 +238,7 @@ public void showRecord() {
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 620));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

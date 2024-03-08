@@ -179,7 +179,7 @@ public final class ManageBooks extends javax.swing.JFrame {
         getContentPane().add(rack, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 310, 60));
 
         edition.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edition", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 310, 60));
+        getContentPane().add(edition, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 540, 310, 60));
 
         bookrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,7 +191,7 @@ public final class ManageBooks extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(bookrecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 630, 710, 140));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 610, 660, 150));
 
         btnaddbooks.setBackground(new java.awt.Color(153, 51, 0));
         btnaddbooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -222,7 +222,7 @@ public final class ManageBooks extends javax.swing.JFrame {
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 780, 750));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 720));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
