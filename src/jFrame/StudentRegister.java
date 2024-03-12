@@ -157,7 +157,7 @@ public class StudentRegister extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(AllRecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 730, 170));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 730, 130));
 
         btnupdate.setText("Update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
@@ -251,12 +251,12 @@ public class StudentRegister extends javax.swing.JFrame {
                 {
                     JOptionPane.showMessageDialog(this,"Registation Failed!!");
                 }
-                showRecord();
+                
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this,"Registration Failed! Error"+ex.getMessage());
             Logger.getLogger(StudentRegister.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        showRecord();
         
         
     }//GEN-LAST:event_btnStudentActionPerformed
@@ -273,7 +273,7 @@ public class StudentRegister extends javax.swing.JFrame {
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         // TODO add your handling code here:
          try {
-        if (hasIssuedBooks(usn.getText())) {
+        if (hasIssuedBooksForStudent(usn.getText())) {
             JOptionPane.showMessageDialog(this, "Student has issued books. Cannot update until books are returned.");
             return;
         }
@@ -310,14 +310,14 @@ public class StudentRegister extends javax.swing.JFrame {
             }
 
             // Validate if the student has issued a book
-            if (hasIssuedBooks(usnValue)) {
+            if (hasIssuedBooksForStudent(usnValue)) {
                 JOptionPane.showMessageDialog(this, "Student has issued books. Cannot delete.");
                 return;
             }
 
-            String query = "DELETE FROM students WHERE student_id=?";
+            String query = "DELETE FROM students WHERE usn=?";
             try (PreparedStatement pst = con.prepareStatement(query)) {
-                pst.setString(1, usnValue);
+                pst.setString(1, usn.getText());
 
                 int rowsAffected = pst.executeUpdate();
 
@@ -335,7 +335,7 @@ public class StudentRegister extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btndeleteActionPerformed
 
-       private boolean hasIssuedBooks(String student_id) throws SQLException {
+       private boolean hasIssuedBooksForStudent(String student_id) throws SQLException {
     pst = con.prepareStatement("SELECT COUNT(*) FROM BOOK_ISSUE WHERE student_id = ?");
     pst.setString(1, student_id);
     rs = pst.executeQuery();

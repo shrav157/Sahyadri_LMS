@@ -20,10 +20,7 @@ Connection con=null;
         PreparedStatement pst=null;
         ResultSet rs=null;
         
-    /**
-     * Creates new form FacultyHome
-     * @param loggedInFacultyID
-     */
+    
     public FacultyHome(String loggedInFacultyID ) throws SQLException {
         
         try {
@@ -67,18 +64,21 @@ public void showRecord() {
     }
 } 
 private void showFacultyDetails(String facultyID) {
-        try {
-            pst = con.prepareStatement("SELECT * FROM FACULTY WHERE faculty_id = ?");
-            pst.setString(1, facultyID);
-            rs = pst.executeQuery();
+    try {
+        pst = con.prepareStatement("SELECT * FROM FACULTY WHERE faculty_id = ?");
+        pst.setString(1, facultyID);
+        rs = pst.executeQuery();
 
-            if (rs.next()) {
-                name.setText(rs.getString("fname"));
-                fno.setText(rs.getString("fno"));
-            }
-        } catch (SQLException ex) {
+        if (rs.next()) {
+            name.setText(rs.getString("fname"));
+            fno.setText(rs.getString("faculty_number"));
         }
+    } catch (SQLException ex) {
+        Logger.getLogger(FacultyHome.class.getName()).log(Level.SEVERE, null, ex);
     }
+}
+
+
     private void showMyRecords(String facultyID) {
         try {
             String query = "SELECT books.book_name, book_issue.issue_date, book_issue.due_date, " +
@@ -219,10 +219,10 @@ private void showFacultyDetails(String facultyID) {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 760, 130));
 
         name.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, 60));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 40));
 
         fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 160, 60));
+        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 40));
 
         myrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

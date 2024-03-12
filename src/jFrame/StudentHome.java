@@ -80,7 +80,7 @@ public void showRecord() {
 
             if (rs.next()) {
                 name.setText(rs.getString("fname"));
-                usn.setText(rs.getString("usn"));
+                nusn.setText(rs.getString("usn"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentHome.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +141,7 @@ public void showRecord() {
         jButton3 = new javax.swing.JButton();
         name = new javax.swing.JLabel();
         usn = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        nusn = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -230,11 +230,11 @@ public void showRecord() {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
         name.setBorder(javax.swing.BorderFactory.createTitledBorder("Name"));
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 160, 60));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 190, 40));
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
-        jLabel2.setBorder(javax.swing.BorderFactory.createTitledBorder("USN"));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 150, 60));
+        nusn.setBorder(javax.swing.BorderFactory.createTitledBorder("USN"));
+        getContentPane().add(nusn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 170, 40));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
@@ -313,7 +313,6 @@ public void showRecord() {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -321,6 +320,7 @@ public void showRecord() {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable myrecords;
     private javax.swing.JLabel name;
+    private javax.swing.JLabel nusn;
     private javax.swing.JTextField searchrecord;
     private javax.swing.JLabel usn;
     // End of variables declaration//GEN-END:variables

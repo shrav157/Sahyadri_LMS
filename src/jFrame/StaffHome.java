@@ -155,6 +155,11 @@ public class StaffHome extends javax.swing.JFrame {
         btnreturnbooks.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnreturnbooks.setForeground(new java.awt.Color(255, 255, 255));
         btnreturnbooks.setText("Return Books");
+        btnreturnbooks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnreturnbooksActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnreturnbooks, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 430, 130, 53));
 
         btnview.setBackground(new java.awt.Color(153, 51, 0));
@@ -260,6 +265,7 @@ public class StaffHome extends javax.swing.JFrame {
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+         new FacultyViewRecords().setVisible(true);
     }//GEN-LAST:event_btnviewActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -271,6 +277,11 @@ public class StaffHome extends javax.swing.JFrame {
         // TODO add your handling code here:
          new AdminLogin().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnreturnbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnbooksActionPerformed
+        // TODO add your handling code here:
+         new FacultyReturnBooks().setVisible(true);
+    }//GEN-LAST:event_btnreturnbooksActionPerformed
 
     /**
      * @param args the command line arguments
