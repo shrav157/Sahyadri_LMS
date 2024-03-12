@@ -229,11 +229,11 @@ public void showRecord() {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 50));
 
-        name.setBorder(javax.swing.BorderFactory.createTitledBorder("Name"));
+        name.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 190, 40));
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, -1, -1));
 
-        nusn.setBorder(javax.swing.BorderFactory.createTitledBorder("USN"));
+        nusn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(nusn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 170, 40));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

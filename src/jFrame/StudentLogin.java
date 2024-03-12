@@ -50,6 +50,7 @@ public final class StudentLogin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         usn = new javax.swing.JPasswordField();
+        jLabel9 = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -83,6 +84,9 @@ public final class StudentLogin extends javax.swing.JFrame {
 
         usn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "USN", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 310, 60));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 40, 30));
 
         btnback.setBackground(new java.awt.Color(153, 51, 0));
         btnback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -177,6 +181,7 @@ try {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField usn;
     // End of variables declaration//GEN-END:variables
 }

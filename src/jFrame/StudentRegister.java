@@ -61,6 +61,7 @@ public class StudentRegister extends javax.swing.JFrame {
         usn = new javax.swing.JTextField();
         branch = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         searchrecords = new javax.swing.JTextField();
         btnsearch = new javax.swing.JButton();
@@ -69,6 +70,7 @@ public class StudentRegister extends javax.swing.JFrame {
         btnupdate = new javax.swing.JButton();
         btndelete = new javax.swing.JButton();
         btnclear = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 150, 0, 0));
@@ -126,6 +128,9 @@ public class StudentRegister extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/adminIcons/home_24px.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
+
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 51, 0));
         jButton2.setText("    Home");
@@ -139,6 +144,9 @@ public class StudentRegister extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 50));
         getContentPane().add(searchrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 600, 50));
 
+        btnsearch.setBackground(new java.awt.Color(153, 51, 0));
+        btnsearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnsearch.setForeground(new java.awt.Color(255, 255, 255));
         btnsearch.setText("Search");
         btnsearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,6 +167,9 @@ public class StudentRegister extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 730, 130));
 
+        btnupdate.setBackground(new java.awt.Color(153, 51, 0));
+        btnupdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnupdate.setForeground(new java.awt.Color(255, 255, 255));
         btnupdate.setText("Update");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,21 +178,31 @@ public class StudentRegister extends javax.swing.JFrame {
         });
         getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
 
+        btndelete.setBackground(new java.awt.Color(153, 51, 0));
+        btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btndelete.setForeground(new java.awt.Color(255, 255, 255));
         btndelete.setText("Delete");
         btndelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, -1, -1));
 
+        btnclear.setBackground(new java.awt.Color(153, 51, 0));
+        btnclear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnclear.setForeground(new java.awt.Color(255, 255, 255));
         btnclear.setText("Clear");
         btnclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 540, -1, -1));
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 860));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -420,6 +441,8 @@ public class StudentRegister extends javax.swing.JFrame {
     private javax.swing.JTextField fname;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField lname;

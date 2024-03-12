@@ -63,6 +63,7 @@ public class ReturnBooks extends javax.swing.JFrame {
         Yes = new javax.swing.JRadioButton();
         No = new javax.swing.JRadioButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
@@ -136,6 +137,9 @@ public class ReturnBooks extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/adminIcons/home_24px.png"))); // NOI18N
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 51, 0));
@@ -360,6 +364,7 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private com.toedter.calendar.JDateChooser returndate;
     private javax.swing.JTextField studentid;

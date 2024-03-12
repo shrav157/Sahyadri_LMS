@@ -64,6 +64,7 @@ public class FacultyReturnBooks extends javax.swing.JFrame {
         No = new javax.swing.JRadioButton();
         btnSearch = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -138,6 +139,9 @@ public class FacultyReturnBooks extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/adminIcons/home_24px.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 30, 30));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 51, 0));
@@ -367,6 +371,7 @@ String finePaid = Yes.isSelected() ? "Yes" : "No";
     private com.toedter.calendar.JDateChooser issuedate;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

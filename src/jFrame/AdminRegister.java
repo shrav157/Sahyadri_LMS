@@ -38,6 +38,7 @@ public final class AdminRegister extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         btnlogin = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -97,6 +98,9 @@ public final class AdminRegister extends javax.swing.JFrame {
 
         jLabel6.setText("Already registered?? ");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, 30));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
         jButton1.setBackground(new java.awt.Color(153, 51, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -219,5 +223,6 @@ public final class AdminRegister extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

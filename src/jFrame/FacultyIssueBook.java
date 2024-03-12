@@ -51,6 +51,7 @@ public class FacultyIssueBook extends javax.swing.JFrame {
         duedate = new com.toedter.calendar.JDateChooser();
         btnissue = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -99,6 +100,9 @@ public class FacultyIssueBook extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(153, 51, 0));
         jLabel5.setText("FACULTY ISSUE BOOK DETAILS");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 270, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 30, 30));
 
         jButton1.setBackground(new java.awt.Color(153, 51, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -237,5 +241,6 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }

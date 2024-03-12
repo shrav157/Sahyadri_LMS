@@ -35,6 +35,7 @@ public final class AdminLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         Susername = new javax.swing.JTextField();
@@ -42,8 +43,12 @@ public final class AdminLogin extends javax.swing.JFrame {
         btnalogin = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnSregister = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         btnback = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+
+        jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 153, 153));
@@ -106,20 +111,26 @@ public final class AdminLogin extends javax.swing.JFrame {
         });
         getContentPane().add(btnSregister, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, -1, -1));
 
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
+
         btnback.setBackground(new java.awt.Color(153, 51, 0));
         btnback.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnback.setForeground(new java.awt.Color(255, 255, 255));
-        btnback.setText("      Back");
+        btnback.setText(" Back");
         btnback.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnbackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 30));
+        getContentPane().add(btnback, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 30));
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 600));
+
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -207,5 +218,8 @@ public final class AdminLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     // End of variables declaration//GEN-END:variables
 }
