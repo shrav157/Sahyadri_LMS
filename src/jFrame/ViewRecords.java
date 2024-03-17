@@ -72,7 +72,7 @@ public final class ViewRecords extends javax.swing.JFrame {
                 btnsearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, 80, 50));
+        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 110, 90, 50));
 
         AllRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

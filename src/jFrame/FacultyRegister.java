@@ -84,7 +84,7 @@ public class FacultyRegister extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 96, 38));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
@@ -101,7 +101,7 @@ public class FacultyRegister extends javax.swing.JFrame {
                 btnaddFacultyActionPerformed(evt);
             }
         });
-        getContentPane().add(btnaddFaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 110, 40));
+        getContentPane().add(btnaddFaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 110, 40));
 
         fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 310, 60));
@@ -127,7 +127,7 @@ public class FacultyRegister extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, -1, -1));
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 190, 110, 40));
 
         btndelete.setBackground(new java.awt.Color(153, 51, 0));
         btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -138,7 +138,7 @@ public class FacultyRegister extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 300, -1, -1));
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, 110, 40));
 
         btnclear.setBackground(new java.awt.Color(153, 51, 0));
         btnclear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -149,8 +149,8 @@ public class FacultyRegister extends javax.swing.JFrame {
                 btnclearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
-        getContentPane().add(searchfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 330, -1));
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 110, 40));
+        getContentPane().add(searchfaculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, 480, 40));
 
         btnsearch.setBackground(new java.awt.Color(153, 51, 0));
         btnsearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -161,7 +161,7 @@ public class FacultyRegister extends javax.swing.JFrame {
                 btnsearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 480, -1, -1));
+        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 110, 40));
 
         allrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,11 +173,11 @@ public class FacultyRegister extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(allrecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 520, 670, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 830, 130));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 670));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,7 +196,10 @@ public class FacultyRegister extends javax.swing.JFrame {
                 obj.add(rs.getString(i));
             }
             df.addRow(obj);
-        }
+        } 
+         // Make the table non-editable
+        allrecords.setDefaultEditor(Object.class, null);
+
     } catch (SQLException ex) {
         // Handle the exception
     }
@@ -229,13 +232,18 @@ if (fname.getText().isEmpty() || lname.getText().isEmpty() || email.getText().is
 }
 
 try {
+     if (facultyExists(FacultyNumber)) {
+            JOptionPane.showMessageDialog(this, "Faculty with Faculty Number " + FacultyNumber + " already exists.");
+            return;
+        }
+
     pst = con.prepareStatement("INSERT INTO faculty(fname, lname, emailid, faculty_number, branch) VALUES(?,?,?,?,?)");
     pst.setString(1, First);
     pst.setString(2, Last);
     pst.setString(3, Email);
     pst.setString(4, FacultyNumber);
     pst.setString(5, FacultyBranch);
-
+    
     int k = pst.executeUpdate();
     System.out.println("Rows affected: " + k);
 
@@ -272,35 +280,43 @@ try {
     }//GEN-LAST:event_btnclearActionPerformed
      
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-       try {
-    // Check if faculty member has issued books
-    if (hasIssuedBooksForFaculty(fno.getText())) {
-        JOptionPane.showMessageDialog(this, "Faculty member has issued books. Cannot update until books are returned.");
-        return;
+        try {
+        String firstName = fname.getText();
+        String lastName = lname.getText();
+        String emailAddress = email.getText();
+        String facultyNumber = fno.getText();
+        String facultyBranch = branch.getText();
+
+        pst = con.prepareStatement("UPDATE faculty SET fname=?, lname=?, emailid=?, branch=? WHERE faculty_number=?");
+        pst.setString(1, firstName);
+        pst.setString(2, lastName);
+        pst.setString(3, emailAddress);
+        pst.setString(4, facultyBranch);
+        pst.setString(5, facultyNumber);
+
+        int rowsAffected = pst.executeUpdate();
+
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(this, "Record updated successfully");
+            showRecord();
+        } else {
+            JOptionPane.showMessageDialog(this, "Update failed. Faculty member with provided Faculty Number not found.");
+        }
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(this, "Update failed! Error: " + ex.getMessage());
+        ex.printStackTrace(); // Print stack trace for debugging
     }
-
-    pst = con.prepareStatement("UPDATE faculty SET fname=?, lname=?, emailid=?, faculty_number=?, branch=? WHERE faculty_number=?");
-    pst.setString(1, fname.getText());
-    pst.setString(2, lname.getText());
-    pst.setString(3, email.getText());
-    pst.setString(4, fno.getText());
-    pst.setString(5, branch.getText());
-    pst.setString(6, fno.getText()); // Assuming faculty_number is unique and used for identification
-
-    int rowsAffected = pst.executeUpdate();
-
-    if (rowsAffected > 0) {
-        JOptionPane.showMessageDialog(this, "Record updated successfully");
-        showRecord();
-    } else {
-        JOptionPane.showMessageDialog(this, "Update failed. Faculty member with provided Faculty Number not found.");
-    }
-} catch (SQLException ex) {
-    JOptionPane.showMessageDialog(this, "Update failed! Error: " + ex.getMessage());
-    // Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-}
-
     }//GEN-LAST:event_btnupdateActionPerformed
+private boolean facultyExists(String faculty_number) throws SQLException {
+    try (PreparedStatement pst = con.prepareStatement("SELECT COUNT(*) FROM faculty WHERE faculty_number = ?")) {
+        pst.setString(1, faculty_number);
+        try (ResultSet rs = pst.executeQuery()) {
+            rs.next();
+            int count = rs.getInt(1);
+            return count > 0;
+        }
+    }
+}
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
         // TODO add your handling code here:

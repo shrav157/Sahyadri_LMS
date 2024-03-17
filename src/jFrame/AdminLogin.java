@@ -5,10 +5,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 public final class AdminLogin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form AdminLogin
-     */
     public AdminLogin() {
         initComponents();
         try {
@@ -175,9 +171,6 @@ public final class AdminLogin extends javax.swing.JFrame {
         new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnbackActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

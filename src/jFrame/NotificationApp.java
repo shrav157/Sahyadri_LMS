@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,14 @@ public class NotificationApp extends javax.swing.JFrame {
 //            Logger.getLogger(ReturnBooks.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+        private void sendMessage() {
+        String Message = message.getText();
+        sendToAllStudents(Message);
+        sendToAllFaculty(Message);
+        saveMessageToDatabase(Message);
+        }
+    
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -145,32 +154,46 @@ public class NotificationApp extends javax.swing.JFrame {
         // TODO add your handling code here:
          new StaffHome().setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-       private void sendMessage() {
-        // Get the message from the text field
-        String Message = message.getText();
-
-        // Insert the message into the database for all registered students
-        sendToAllStudents(Message);
-
-        // For simplicity, print the message for now
-        System.out.println("Message sent to all students: " + message);
-
-        // Clear the text field after sending the message
-        message.setText("");
-    }
-   private void sendToAllStudents(String message) {
+    private void saveMessageToDatabase(String message) {
         try {
-            // Assuming you have a table named "students" with a column "student_id"
-            String query = "INSERT INTO notify (sender_id, receiver_id, message) SELECT 1, student_id, ? FROM students";
+            String query = "INSERT INTO notify (sender_id, receiver_id, message) VALUES (?, ?, ?)";
             try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
-                preparedStatement.setString(1, message);
+                // Assuming sender_id for staff is 1 (you can change it based on your user ID)
+                preparedStatement.setInt(1, 1);
+                preparedStatement.setInt(2, 0); // Receiver_id 0 for broadcast to all
+                preparedStatement.setString(3, message);
                 preparedStatement.executeUpdate();
             }
         } catch (SQLException e) {
-           
-            // Handle the exception appropriately
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error saving message to the database: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+private void sendToAllStudents(String message) {
+    try {
+        String query = "INSERT INTO notify (sender_id, receiver_id, message) SELECT 1, student_id, ? FROM students";
+        try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, message);
+            preparedStatement.executeUpdate();
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error sending message to students: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+private void sendToAllFaculty(String message) {
+    try {
+        String query = "INSERT INTO notify (sender_id, receiver_id, message) SELECT 1, faculty_id, ? FROM faculty";
+        try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
+            preparedStatement.setString(1, message);
+            preparedStatement.executeUpdate();
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error sending message to faculty: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

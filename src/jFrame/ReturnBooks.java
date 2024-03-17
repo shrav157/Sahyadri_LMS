@@ -117,7 +117,7 @@ public class ReturnBooks extends javax.swing.JFrame {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 80, 40));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, 100, 40));
         getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 310, 50));
         getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 310, 50));
         getContentPane().add(returndate, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 310, 50));

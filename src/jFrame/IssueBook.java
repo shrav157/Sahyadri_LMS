@@ -87,6 +87,11 @@ public class IssueBook extends javax.swing.JFrame {
         getContentPane().add(bookid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 310, 60));
 
         studentid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Student ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        studentid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                studentidActionPerformed(evt);
+            }
+        });
         getContentPane().add(studentid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 310, 60));
         getContentPane().add(issuedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 310, 50));
         getContentPane().add(duedate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, 310, 50));
@@ -151,7 +156,7 @@ try {
 
             if (quantity > 0) {
                 // Insert into BOOK_ISSUE table
-                PreparedStatement issueStmt = con.prepareStatement("INSERT INTO BOOK_ISSUE (book_id, student_id, issue_date, due_date, status) VALUES (?, ?, ?, ?, ?)");
+                PreparedStatement issueStmt = con.prepareStatement("INSERT INTO BOOK_ISSUE (book_id,student_id, issue_date, due_date, status) VALUES (?, ?, ?, ?, ?)");
                 issueStmt.setString(1, book_id);
                 issueStmt.setString(2, student_id);
                 issueStmt.setDate(3, java.sql.Date.valueOf(issue_date)); // Assuming issue_date is in "yyyy-MM-dd" format
@@ -177,7 +182,7 @@ issueStmt.setDate(4, java.sql.Date.valueOf(due_date));
                 JOptionPane.showMessageDialog(null, "Book is not available for issue");
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Incorrect studentID");
+            JOptionPane.showMessageDialog(null, "Incorrect usn");
         }
     } else {
         JOptionPane.showMessageDialog(null, "Incorrect bookID");
@@ -194,6 +199,10 @@ JOptionPane.showMessageDialog(null, "Connection Error: " + e.getMessage());
         // TODO add your handling code here
          new StaffHome().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void studentidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_studentidActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentidActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,10 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
-/**
- *
- * @author pc
- */
+
 public final class FacultyHome extends javax.swing.JFrame {
 Connection con=null;
         Statement st=null;
@@ -71,7 +68,9 @@ private void showFacultyDetails(String facultyID) {
 
         if (rs.next()) {
             name.setText(rs.getString("fname"));
-            fno.setText(rs.getString("faculty_number"));
+            fno1.setText(rs.getString("faculty_number"));
+             fid.setText(rs.getString("faculty_id"));
+            
         }
     } catch (SQLException ex) {
         Logger.getLogger(FacultyHome.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,7 +103,7 @@ private void showFacultyDetails(String facultyID) {
                 obj.add(rs.getString("fine_paid"));
                 obj.add(rs.getString("status"));
                 df.addRow(obj);
-            }
+            }myrecords.setDefaultEditor(Object.class, null);
         } catch (SQLException ex) {
             Logger.getLogger(FacultyHome.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -114,9 +113,8 @@ private void showFacultyDetails(String facultyID) {
     private void initComponents() {
 
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         searchrecord = new javax.swing.JTextField();
@@ -125,16 +123,21 @@ private void showFacultyDetails(String facultyID) {
         jScrollPane1 = new javax.swing.JScrollPane();
         bookrecords = new javax.swing.JTable();
         name = new javax.swing.JLabel();
-        fno = new javax.swing.JLabel();
+        fid = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         myrecords = new javax.swing.JTable();
         name1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         usn = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        fno1 = new javax.swing.JLabel();
+        fno2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 150, 0, 0));
@@ -143,26 +146,6 @@ private void showFacultyDetails(String facultyID) {
 
         jPanel1.setBackground(new java.awt.Color(153, 51, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(153, 51, 0));
-        jButton2.setText("Notifies");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(153, 51, 0));
-        jButton1.setText("About ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(153, 51, 0));
@@ -174,7 +157,7 @@ private void showFacultyDetails(String facultyID) {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 823, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(153, 51, 0));
@@ -221,8 +204,8 @@ private void showFacultyDetails(String facultyID) {
         name.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 40));
 
-        fno.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
-        getContentPane().add(fno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 40));
+        fid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty Id", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fid, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 160, 40));
 
         myrecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,9 +222,15 @@ private void showFacultyDetails(String facultyID) {
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 80, -1, -1));
         getContentPane().add(usn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 550));
+        fno1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 40));
+
+        fno2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Faculty No.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
+        getContentPane().add(fno2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 40));
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,24 +247,12 @@ private void showFacultyDetails(String facultyID) {
             obj.setRowFilter(RowFilter.regexFilter(searchrecord.getText()));
     }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-          new RecieveMessage().setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-         new AboutUs().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         new MainOpen().setVisible(true);
+         new FacultyLogin().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+   
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -314,15 +291,16 @@ private void showFacultyDetails(String facultyID) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable bookrecords;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JLabel fno;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel fid;
+    private javax.swing.JLabel fno1;
+    private javax.swing.JLabel fno2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

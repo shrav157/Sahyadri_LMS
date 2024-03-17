@@ -229,7 +229,9 @@ public class StudentRegister extends javax.swing.JFrame {
                 obj.add(rs.getString(i));
             }
             df.addRow(obj);
-        }
+        } // Make the table non-editable
+        AllRecords.setDefaultEditor(Object.class, null);
+
     } catch (SQLException ex) {
         // Handle the exception
     }
@@ -251,6 +253,10 @@ public class StudentRegister extends javax.swing.JFrame {
             return;  // Stop the registration process if any field is empty
         }
         try {
+             if (isUSNExists(USN)) {
+            JOptionPane.showMessageDialog(this, "A student with this USN already exists.");
+            return;  // Stop the registration process if the USN already exists
+        }
     pst = con.prepareStatement("INSERT INTO students(fname, lname, email, phonenumber, usn, branch) VALUES(?,?,?,?,?,?)");
             pst.setString(1,First);
             pst.setString(2,Last);
@@ -281,7 +287,15 @@ public class StudentRegister extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnStudentActionPerformed
-
+private boolean isUSNExists(String usn) throws SQLException {
+    // Check if the USN already exists in the database
+    pst = con.prepareStatement("SELECT COUNT(*) FROM students WHERE usn = ?");
+    pst.setString(1, usn);
+    rs = pst.executeQuery();
+    rs.next();
+    int count = rs.getInt(1);
+    return count > 0;
+}
     private void usnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usnActionPerformed

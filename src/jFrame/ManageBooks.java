@@ -103,11 +103,11 @@ public final class ManageBooks extends javax.swing.JFrame {
         btnaddbooks = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         btnclear = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(200, 0, 0, 0));
@@ -129,7 +129,7 @@ public final class ManageBooks extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 6, 96, 38));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1028, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
         Btnupdate.setBackground(new java.awt.Color(153, 51, 0));
         Btnupdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -140,7 +140,7 @@ public final class ManageBooks extends javax.swing.JFrame {
                 BtnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(Btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 100, 30));
+        getContentPane().add(Btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 260, 100, 30));
 
         Btndelete.setBackground(new java.awt.Color(153, 51, 0));
         Btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -151,7 +151,7 @@ public final class ManageBooks extends javax.swing.JFrame {
                 BtndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(Btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 410, 100, 30));
+        getContentPane().add(Btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 100, 30));
         getContentPane().add(searchrecord, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 530, 38));
 
         btnSearch.setBackground(new java.awt.Color(153, 51, 0));
@@ -219,27 +219,22 @@ public final class ManageBooks extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 30, 30));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons/back.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 40, 30));
-
-        jButton1.setBackground(new java.awt.Color(153, 51, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("     Back");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 30));
-
+        btnclear.setBackground(new java.awt.Color(153, 0, 51));
+        btnclear.setForeground(new java.awt.Color(255, 255, 255));
         btnclear.setText("Clear");
         btnclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, 100, 30));
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 400, 100, 30));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 800, 720));
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, 10, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 40, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -417,13 +412,13 @@ private void bookrecordsMouseClicked(java.awt.event.MouseEvent evt) {
     private javax.swing.JButton btnclear;
     private javax.swing.JTextField domain;
     private javax.swing.JTextField edition;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

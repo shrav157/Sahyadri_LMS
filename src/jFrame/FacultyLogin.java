@@ -12,9 +12,6 @@ import javax.swing.JOptionPane;
  */
 public final class FacultyLogin extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FacultyLogin
-     */
     public FacultyLogin() {
         initComponents();
         Connect();
@@ -113,7 +110,6 @@ public final class FacultyLogin extends javax.swing.JFrame {
         }
     } catch (SQLException ex) {
         JOptionPane.showMessageDialog(this, "Login failed! Please check the logs for details.");
-        ex.printStackTrace();  // Print the exception details to the console for debugging
     }
     
     }//GEN-LAST:event_btnFLoginActionPerformed

@@ -17,21 +17,20 @@ public class RecieveMessage extends javax.swing.JFrame {
         initComponents();
          this.loggedInStudentID = loggedInStudentID;
          Connect();
-        fetchAndDisplayMessages();
-        
+        displayMessagesToStudents();
+        // displayMessagesToFaculty();       
     }    
+public void Connect() {
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system", "root", "Sahyadri@157");
+    } catch (ClassNotFoundException | SQLException ex) {
+        ex.printStackTrace();
+        JOptionPane.showMessageDialog(this, "Error connecting to the database: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}
 
-    RecieveMessage() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public void Connect(){
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost/sahyadri_library_management_system","root","Sahyadri@157");
-        } catch (ClassNotFoundException | SQLException ex) {
-//            Logger.getLogger(FacultyRegister.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,23 +59,29 @@ public class RecieveMessage extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-   private void fetchAndDisplayMessages() {
+     private void displayMessagesToStudents() {
         try {
-            // Fetch messages for the current student from the database
             String messages = getMessagesForStudent(loggedInStudentID);
-
-            // Display messages in the text area
             receivemessage.setText(messages);
         } catch (SQLException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error fetching messages: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
+
+//    private void displayMessagesToFaculty() {
+//        try {
+//            String messages = getMessagesForFaculty(loggedInFacultyID);
+//            receivemessage.setText(messages);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Error fetching messages: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+//        }
+//    }
    private String getMessagesForStudent(int loggedInStudentID) throws SQLException {
         StringBuilder messages = new StringBuilder();
 
         try {
-            // Assuming there is a table named "notify" with columns "sender_id", "receiver_id", and "message"
             String query = "SELECT message FROM notify WHERE receiver_id = ?";
             try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
                 preparedStatement.setInt(1, loggedInStudentID);
@@ -89,16 +94,34 @@ public class RecieveMessage extends javax.swing.JFrame {
                 }
             }
         } catch (SQLException e) {
-            throw e; // Propagate the exception to handle it in fetchAndDisplayMessages
+            throw e;
         }
 
         return messages.toString();
     }
    
-    public void onMessageReceived(String message) {
-        // Handle the received message (display in JTextArea, for example)
-        receivemessage.append(message + "\n");
-    }
+//   private String getMessagesForFaculty(int loggedInFacultyID) throws SQLException {
+//        StringBuilder messages = new StringBuilder();
+//
+//        try {
+//            String query = "SELECT message FROM notify WHERE receiver_id = ?";
+//            try (PreparedStatement preparedStatement = con.prepareStatement(query)) {
+//                preparedStatement.setInt(1, loggedInFacultyID);
+//
+//                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+//                    while (resultSet.next()) {
+//                        String message = resultSet.getString("message");
+//                        messages.append(message).append("\n");
+//                    }
+//                }
+//            }
+//        } catch (SQLException e) {
+//            throw e;
+//        }
+//
+//        return messages.toString();
+//    }
+//    
 
    
     public static void main(String args[]) {
@@ -127,8 +150,11 @@ public class RecieveMessage extends javax.swing.JFrame {
 
       
     java.awt.EventQueue.invokeLater(() -> {
-        int loggedInStudentID = 123; // Replace 123 with the actual ID of the logged-in student
+        int loggedInStudentID = 123; 
+        // int loggedInFacultyID = 123; 
         new RecieveMessage(loggedInStudentID).setVisible(true);
+        //new RecieveMessage(loggedInFacultyID).setVisible(true);
+        
     });
 
         
