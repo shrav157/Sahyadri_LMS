@@ -44,7 +44,7 @@ To get started with using or contributing to our project, follow these steps:
 ## Contributors
 
 - Shravya Kotian(@shrav157)
-- Jane Smith (@shahi21)
+- Shahistha (@shahi21)
 
 ## License
 
