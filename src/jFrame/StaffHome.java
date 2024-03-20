@@ -218,6 +218,7 @@ public class StaffHome extends javax.swing.JFrame {
     private void btnmanagebooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmanagebooksActionPerformed
         try {
             // TODO add your handling code here:
+            setVisible(false);
             new ManageBooks().setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(StaffHome.class.getName()).log(Level.SEVERE, null, ex);
@@ -226,6 +227,7 @@ public class StaffHome extends javax.swing.JFrame {
 
     private void btnissuebooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissuebooksActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
        new IssueBook().setVisible(true);
     }//GEN-LAST:event_btnissuebooksActionPerformed
 
@@ -239,47 +241,56 @@ public class StaffHome extends javax.swing.JFrame {
 
     private void addstudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addstudentsActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new StudentRegister().setVisible(true);
     }//GEN-LAST:event_addstudentsActionPerformed
 
     private void btnAllrecordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllrecordsActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new ViewRecords().setVisible(true);
     }//GEN-LAST:event_btnAllrecordsActionPerformed
 
     private void btnaddfacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddfacultyActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new FacultyRegister().setVisible(true);
     }//GEN-LAST:event_btnaddfacultyActionPerformed
 
     private void btnissueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnissueActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new FacultyIssueBook().setVisible(true);
         
     }//GEN-LAST:event_btnissueActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new ReturnBooks().setVisible(true);
     }//GEN-LAST:event_btnreturnActionPerformed
 
     private void btnviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnviewActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new FacultyViewRecords().setVisible(true);
     }//GEN-LAST:event_btnviewActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new AboutUs().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new AdminLogin().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnreturnbooksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnbooksActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new FacultyReturnBooks().setVisible(true);
     }//GEN-LAST:event_btnreturnbooksActionPerformed
 

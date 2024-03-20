@@ -83,16 +83,19 @@ public class MainOpen extends javax.swing.JFrame {
 
     private void btnlibstaffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlibstaffActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnlibstaffActionPerformed
 
     private void btnfacultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnfacultyActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new FacultyLogin().setVisible(true);
     }//GEN-LAST:event_btnfacultyActionPerformed
 
     private void btnstudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnstudentActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new StudentLogin().setVisible(true);
     }//GEN-LAST:event_btnstudentActionPerformed
 

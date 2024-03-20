@@ -74,6 +74,7 @@ public class StudentRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(400, 150, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -90,7 +91,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 btnStudentActionPerformed(evt);
             }
         });
-        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 550, 110, 40));
+        getContentPane().add(btnStudent, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 150, 110, 40));
 
         fname.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "First Name", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 12), new java.awt.Color(153, 51, 0))); // NOI18N
         getContentPane().add(fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 310, 60));
@@ -141,8 +142,8 @@ public class StudentRegister extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 6, 96, 38));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 50));
-        getContentPane().add(searchrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, 600, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 50));
+        getContentPane().add(searchrecords, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, 600, 50));
 
         btnsearch.setBackground(new java.awt.Color(153, 51, 0));
         btnsearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -153,7 +154,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 btnsearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(625, 600, 120, 50));
+        getContentPane().add(btnsearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 540, 120, 50));
 
         AllRecords.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,7 +166,7 @@ public class StudentRegister extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(AllRecords);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 670, 730, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, 730, 120));
 
         btnupdate.setBackground(new java.awt.Color(153, 51, 0));
         btnupdate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -176,7 +177,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 btnupdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 560, -1, -1));
+        getContentPane().add(btnupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 220, 110, 40));
 
         btndelete.setBackground(new java.awt.Color(153, 51, 0));
         btndelete.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -187,7 +188,7 @@ public class StudentRegister extends javax.swing.JFrame {
                 btndeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 560, -1, -1));
+        getContentPane().add(btndelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, 110, 40));
 
         btnclear.setBackground(new java.awt.Color(153, 51, 0));
         btnclear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -198,11 +199,12 @@ public class StudentRegister extends javax.swing.JFrame {
                 btnclearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 560, -1, -1));
+        getContentPane().add(btnclear, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 353, 110, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/jFrame/brownbook_bg.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 860));
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 900, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -302,6 +304,7 @@ private boolean isUSNExists(String usn) throws SQLException {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new StaffHome().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -159,6 +159,7 @@ public final class AdminLogin extends javax.swing.JFrame {
 
     private void btnSregisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSregisterActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
          new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnSregisterActionPerformed
 
@@ -168,6 +169,7 @@ public final class AdminLogin extends javax.swing.JFrame {
 
     private void btnbackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbackActionPerformed
         // TODO add your handling code here:
+        setVisible(false);
         new AdminRegister().setVisible(true);
     }//GEN-LAST:event_btnbackActionPerformed
 
