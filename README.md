@@ -43,8 +43,9 @@ To get started with using or contributing to our project, follow these steps:
 
 ## Contributors
 
-- Shravya Kotian(@shrav157)
-- Shahistha (@shahi21)
+<td align="center" valign="top" width="14.28%"><a href="https://github.com/shahi21"><img src="https://avatars.githubusercontent.com/u/SHAHISHTHA_PROFILE_ID?v=3?s=100" width="100px;" alt="Shahishtha"/><br /><sub><b>Shahishtha</b></sub></a><br /></td>
+<td align="center" valign="top" width="14.28%"><a href="https://github.com/shrav157"><img src="https://avatars.githubusercontent.com/u/SHRAVYA_PROFILE_ID?v=3?s=100" width="100px;" alt="Shravya Kotian"/><br /><sub><b>Shravya Kotian</b></sub></a><br /></td>
+
 
 ## License
 
